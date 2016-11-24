@@ -1,0 +1,107 @@
+/*
+====================
+Media queries
+====================
+*/
+/* Mobiles in Potrait mode */
+@media only screen
+and (max-width : 320px) {
+  .archive-posts-wraper-hospital, .title-hospital-wraper{
+    margin: auto;
+    width :304px;
+  }
+
+}
+
+/* Mobiles in landscape mode */
+@media only screen
+and (min-width : 321px)
+and (max-width : 620px) {
+  .archive-posts-wraper-hospital, .title-hospital-wraper{
+    margin: auto;
+    width :304px;
+  }
+
+}
+
+/* Tablets */
+@media only screen
+and (min-width : 620px)
+and (max-width : 1000px) {
+  .archive-posts-wraper-hospital, .title-hospital-wraper{
+    margin: auto;
+    width :608px;
+  }
+}
+
+/* Desktops and laptops computers */
+@media only screen
+and (min-width : 1000px)
+and (max-width : 1300px) {
+  .archive-posts-wraper-hospital, .title-hospital-wraper{
+    margin: auto;
+    width :912px;
+  }
+
+}
+
+/* very large screen devices */
+@media only screen
+and (min-width : 1300px) {
+  .archive-posts-wraper-hospital, .title-hospital-wraper {
+    margin: auto;
+    width :1216px;
+  }
+
+}
+/* For print */
+
+@media print {
+/* Add your style here */
+}
+
+
+
+
+
+
+.entry-title-hospital {
+font-family: Montserrat, "Helvetica Neue", sans-serif;
+font-size: 28px;
+font-size: 1.75rem;
+font-weight: 700;
+line-height: 1.25;
+margin-bottom: 1em;
+}
+
+.entry-title-hospital a {
+color: #1a1a1a;
+}
+
+.entry-title-hospital a:hover,
+.entry-title-hospital a:focus {
+color: #007acc;
+}
+
+.archive-post-hospital{
+  width:300px;
+  padding:4px 4px 4px 4px;
+  border:1px solid black;
+  float:left;
+  height: 280px;
+  border: 1px solid black;
+  margin: 2px;
+  box-sizing: border-box;
+  overflow: hidden;"
+}
+
+
+
+.hospital-old-new-posts{
+  margin-top: 50px;
+  margin-top: 1.50rem;
+}
+
+.content-area-without-sidebar-hospital{
+  width:100%;
+}

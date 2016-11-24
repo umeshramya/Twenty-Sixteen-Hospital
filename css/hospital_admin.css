@@ -1,0 +1,27 @@
+
+
+
+.preview-container{
+  display: inline-block;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+
+}
+
+.form-container {
+  display: inline-block;
+  float: center;
+  padding: 5px;
+  margin: 5px;
+
+
+}
+
+
+#hospital_profile_picture_preview {
+    margin: auto;
+    width: 300px;
+}

@@ -30,12 +30,12 @@ Creating sub menu functions
 */
 function  hospital_theme_create_page(){
 // genartion of custom admin page
-require_once (get_stylesheet_directory() . '/admin-submenu-settings.php');
+require_once (get_stylesheet_directory() . '/templates/admin-submenu-settings.php');
 
 }
 
 function hospital_theme_support_page(){
-  require_once (get_stylesheet_directory() . '/post-formats.php');
+  require_once (get_stylesheet_directory() . '/templates/post-formats.php');
 
 }
 

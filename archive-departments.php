@@ -9,12 +9,8 @@
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
 
 		<?php 	while ( have_posts() ) : the_post();?>
-			<div class="archive-post-hospital">
-				<article>
-					<?php the_title( sprintf( '<h2 class="entry-title-hospital"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h>' );
-					twentysixteen_post_thumbnail();?>
-				</article>
-			</div>
+
+			<?php get_template_part( '/inc/template-parts/content', 'archive' ); ?>
 
 		<?php endwhile  ?>
 

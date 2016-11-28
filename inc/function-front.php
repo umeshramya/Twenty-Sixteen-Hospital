@@ -27,8 +27,9 @@ function hospital_send_email_author_callback(){
   $from_email =  $_POST["from_email"] ;
   $subject_email=esc_html( $_POST["subject_email"] );
   $message_email =esc_html($_POST ["message_email"] );
-   echo   $to_email . " " . " " . $name_email . " " . $from_email
-    . " " . $subject_email . " " . $message_email;
+
+    wp_mail( $to_email, $subject_email, $message_email,$from_email);
+    echo "Submitted email";
 }
 
  ?>

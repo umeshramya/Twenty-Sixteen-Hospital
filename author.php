@@ -21,7 +21,7 @@ Template Name: Author
 					</div>
 					<div class="hospital-contact-form" >
 						<h2> Send email to <?php echo the_author_meta('display_name');  ?></h2>
-						<form class="hospital_contact_form" action="" method="">
+						<form class="hospital_contact_form" id="author_contact_form">
 							<input type="hidden" name="to_email" id= "to_email" value="<?php echo the_author_meta("email") ?>">
 							<label for="name_email"></label>Name
 							<input type="text" name="name_email" id="name_email" value="" placeholder="Enter name">

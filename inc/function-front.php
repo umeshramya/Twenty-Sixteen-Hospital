@@ -19,19 +19,16 @@ function hospital_archive_post_per_page($query){
 add_action( 'wp_ajax_nopriv_hospital_send_email_author', 'hospital_send_email_author_callback');
 add_action( 'wp_ajax_hospital_send_email_author', 'hospital_send_email_author_callback');
 
-// var datastring =  'to_email='+ to_email
-//                   + '&name_email=' + name_email
-//                   + '&from_email=' + from_email
-//                   + '&subject_email=' + subject_email
-//                   +'&message_email=' + message_email;
-
 function hospital_send_email_author_callback(){
-  $to_email= esc_html( $_POST['to_email'] );
-  $name_email= esc_html( $_POST['name_email'] );
-  $from_email = esc_html( $_POST['from_email'] );
-  $subject_email=esc_html( $_POST['subject_email'] );
-  $message_email =esc_html($_POST ['message_email'] );
-  echo $message_email;
+
+
+  $to_email=  $_POST["to_email"];
+  $name_email=  $_POST["name_email"];
+  $from_email =  $_POST["from_email"] ;
+  $subject_email=esc_html( $_POST["subject_email"] );
+  $message_email =esc_html($_POST ["message_email"] );
+   echo   $to_email . " " . " " . $name_email . " " . $from_email
+    . " " . $subject_email . " " . $message_email;
 }
 
  ?>

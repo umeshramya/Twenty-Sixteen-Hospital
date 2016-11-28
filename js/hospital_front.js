@@ -7,22 +7,22 @@ jQuery(document).ready(function($){
   var message_email= $("#message_email").val();
 
 
-
-  // var to_email = <?php echo the_author_meta('display_name'); ?>
-
   var datastring =  'to_email='+ to_email
                     + '&name_email=' + name_email
                     + '&from_email=' + from_email
                     + '&subject_email=' + subject_email
                     +'&message_email=' + message_email;
-alert (datastring);
-  $.ajax({
-    url: 'ajax-js';
-    data:datastring;
-    type : "POST";
-    action:'hospital_send_email_author';
-  })
 
+  $.ajax({
+    url: 'hospital_front_script',
+    data:datastring,
+    method : "POST",
+    action:'hospital_send_email_author',
+    success: function(result){
+            $("#email_result").html(result);
+        }
+  });
+alert (datastring);
 
 
 

@@ -29,6 +29,6 @@ ENQUE FRONT EBML_ID_CONTENTENCODING
 function hopsital_enque_front_end_files(){
   wp_enqueue_style( 'hospital_frot_style', get_stylesheet_directory_uri(). '/css/hospital_front.css', array(), '1.0.0', 'all');
   wp_enqueue_script( 'hospital_front_script',get_stylesheet_directory_uri().'/js/hospital_front.js', array('jquery'),'1.0.0' , true );
-  wp_localize_script( 'ajax-js', 'ajax_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+  wp_localize_script( 'hospital_front_script', 'ajax_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action( 'wp_enqueue_scripts','hopsital_enque_front_end_files');

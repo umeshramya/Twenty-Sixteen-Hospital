@@ -35,22 +35,7 @@ Template Name: Author
 							<input type="button"  name="btn_contact" id="btn_contact" value="Send email">
 
 						</form>
-
-						<?php
-						if (isset($_POST['name'])){
-						$name = $_POST['name'];
-						echo $name;
-				}
-
-						// $from_name=$_Post['from_email'];
-						// $to_email= the_author_meta('email');
-						// $subject = $_POST['email_subject'];
-						// $message = $_POST['email_message'];
-						// echo $message;
-
-						?>
-
-					</div>
+            <div id="email_result">email resukt</div>
 				<div style="clear: both;"></div><!-- dummy div for clear floats-->
 			</div>
 			<br>

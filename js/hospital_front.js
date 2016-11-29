@@ -19,11 +19,12 @@ jQuery(document).ready(function($){
           },
     success:function(result) {
             // This outputs the result of the ajax request
+
+            $("#email_result").html(result);
             alert (result);
-            // $("#email_result").html(result);
         },
         error: function(errorThrown){
-            // $("#email_result").html(errorThrown);
+            $("#email_result").html(errorThrown);
             alert(errorThrown);
 
             }

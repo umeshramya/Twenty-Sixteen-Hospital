@@ -1,3 +1,9 @@
+<?php
+/*
+This template is for displaying archives of facilties like CT SCan, MRI etc
+*/
+ ?>
+
 <?php get_header( ); ?>
 <header>
 	<div class="title-hospital-wraper"><h1>Facilities</h1> </div>

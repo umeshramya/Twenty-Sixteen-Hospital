@@ -67,4 +67,45 @@ function hospital_send_email_author_callback(){
 
 }
 
+
+function short_code_archive_link_departements(){
+  ?>
+
+<p> <?php echo get_post_type_archive_link('departments'); ?> </p>
+
+<?php
+}
+add_shortcode( 'arch_depar', 'short_code_archive_link_departements' );
+
+
+
+$menu_name = 'Header menu';
+$menu_exists = wp_get_nav_menu_object( $menu_name );
+
+// If it doesn't exist, let's create it.
+if( !$menu_exists){
+    $menu_id = wp_create_nav_menu($menu_name);
+
+	// Set up default menu items
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  __('Home'),
+        'menu-item-classes' => 'home',
+        'menu-item-url' => home_url( '/' ),
+        'menu-item-status' => 'publish'));
+
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  __('Facilities'),
+         'menu-item-object' => 'archive',
+        'menu-item-url' => home_url( '/?post_type=facilities' ),
+        'menu-item-status' => 'publish'));
+
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>  __('Departements'),
+         'menu-item-object' => 'archive',
+        'menu-item-url' => home_url( '/?post_type=departments' ),
+        'menu-item-status' => 'publish'));
+
+
+}
+
  ?>

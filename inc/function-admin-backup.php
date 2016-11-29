@@ -14,7 +14,9 @@ function hospital_add_admin_menu(){
 
   // genearte admin menu sub pages
   add_submenu_page( 'umesh_hospital', 'Hospital Settings Options', 'Settings', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' );
-  //Activate custum Settings
+  add_submenu_page( 'umesh_hospital', 'Hospital Theme Options', 'Theme Options', 'manage_options', 'umesh_hospital_theme_support', 'hospital_theme_support_page' );
+  add_submenu_page( 'umesh_hospital', 'Hospital CSS Options', 'Custom CSS', 'manage_options', 'umesh_hospital_custom_css', 'hospital_theme_custom_css' );
+//Activate custum Settings
 add_action( 'admin_init', 'hospital_theme_custom_settings' );
 
 }
@@ -32,7 +34,15 @@ require_once (get_stylesheet_directory() . '/inc/templates/admin-submenu-setting
 
 }
 
+function hospital_theme_support_page(){
+  require_once (get_stylesheet_directory() . '/templates/post-formats.php');
 
+}
+
+function hospital_theme_custom_css(){
+//geneate hospital settings
+
+}
 /*
 ============================================
  register fields groups, section and fields
@@ -76,7 +86,39 @@ function hospital_theme_custom_settings(){
   add_settings_field( 'hospital-faculty-hirerachy', 'Faculty Hirerachy', 'hospital_faculty_hirerachy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'sidebar-profile-picture', 'Hospital Profile picture', 'hospital_sidebar_profile_picture', 'umesh_hospital', 'hospital_sidebar_options');
 
+
+  //=================THEME SUPPORT OPTIONS AND Contact OPTION====================
+  register_setting( 'hospital-theme-support-group', 'post_formats' );
+
+  add_settings_section( 'hospital_theme_suppot_options', 'Theme Support', 'hospital_theme_support','umesh_hospital_theme_support' );
+  add_settings_field( 'post-formats', 'Post Formats', 'hodpital_theme_post_formats', 'umesh_hospital_theme_support', 'hospital_theme_suppot_options' );
+
+
 }
+
+
+/*
+==============================
+Theme support functions
+=============================
+*/
+
+
+function hospital_theme_support(){
+  echo '<h3> Activate and Deactivate Theme support options</h3>';
+}
+function hodpital_theme_post_formats(){
+  $option_checked = get_option( 'post_formats' );
+  $formats = array ('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
+  $output='';
+  // $checked='';
+  foreach ($formats as $format) {
+    $checked = (@$option_checked[$format]==1 ? 'checked':'');
+    $output .= '<label> <input type="checkbox" id="'. $format .'" name="post_formats['. $format . ']"  value="1" '. $checked .' />' . $format .'</label> </br>';
+  }
+echo $output;
+}
+
 
 
 /*

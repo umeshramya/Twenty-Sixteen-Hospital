@@ -96,18 +96,33 @@ foreach ($departments_array as $department) {
     if ($cur_user_department== $department ){echo 'selected="true"';}
    echo  '>'. $department .'</option>';
 }
-  echo '</select>';
+  echo '</select></br>';
 // ===================Qulification===================
 $cur_user_quilification=  esc_attr(get_the_author_meta( 'qualification', $user->ID ));
 echo '<label for="qualification">Qualification</label>';
-echo '<input type="text" name="qualification" id="qualification" value="'. $cur_user_quilification .'"/>';
+echo '<input type="text" name="qualification" id="qualification" value="'. $cur_user_quilification .'"/></br>';
 
 // ===================Registretion Number============
 $cur_user_registration=  esc_attr(get_the_author_meta( 'registration_number', $user->ID ));
 echo '<label for="registration_number">Registration Number</label>';
-echo '<input type="text" name="registration_number" id="registration_number" value="'. $cur_user_registration .'"/>';
+echo '<input type="text" name="registration_number" id="registration_number" value="'. $cur_user_registration .'"/></br>';
 
-// ===================Mangement Position=============
+// ===================faculty Hirerachy=============
+$cur_user_faculty_hirerachy = esc_attr( get_the_author_meta( "user_faculty_hirerachy" , $user->ID  ) );
+$faculty_hirerachy_array =explode (',' ,  get_option('faculty_hirerachy'));
+
+echo '<label for="user_faculty_hirerachy"/> Faculty Hirerachy </label>';
+echo '<select name="user_faculty_hirerachy" id="user_faculty_hirerachy"/>';
+
+echo '<option value="Select faculty hirerachy">Select faculty hirerachy</option>';
+foreach ($faculty_hirerachy_array as $faculty_hirerachy) {
+    echo '<option value="'. $faculty_hirerachy .'"';
+    if ($cur_user_faculty_hirerachy== $faculty_hirerachy ){echo 'selected="true"';}
+   echo  '>'. $faculty_hirerachy .'</option>';
+}
+  echo '</select></br>';
+
+
 // ====================Consulation Time=============
 // ====================On leave setting=============
 
@@ -123,6 +138,7 @@ function hospital_save_user_data($user){
   update_user_meta( $user, 'user_department', $_POST['user_department']);
   update_user_meta ($user, 'qualification', $_POST['qualification'] );
   update_user_meta ($user, 'registration_number', $_POST['registration_number'] );
+  update_user_meta( $user, 'user_faculty_hirerachy', $_POST['user_faculty_hirerachy'] );
 }
 
 
@@ -173,7 +189,7 @@ function hospital_department_custom_post_type (){
 
 // ============insert post department atomatically===============
 function  hospital_insert_department_posts(){
-  $titles= explode(',' , get_option( 'departements'));
+  $titles= array_reverse(explode(',' , get_option( 'departements')));////this array reverse to make first entey to make it latest post
     foreach ($titles as $title ) {
     $title=trim($title);
   $post_object= get_page_by_title( $title,  'OBJECT',  'departments');
@@ -234,7 +250,7 @@ function hospital_facility_custom_post_type (){
 }
 // ============insert post facilities atomatically===============
 function  hospital_insert_facility_posts(){
-  $titles= explode(',' , get_option( 'facilities'));
+  $titles= array_reverse(explode(',' , get_option( 'facilities')));//this array reverse to make first entey to make it latest post
     foreach ($titles as $title ) {
     $title=trim($title);
   $post_object= get_page_by_title( $title,  'OBJECT',  'facilities');

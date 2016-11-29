@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Author
+this is of single with descrption of Author contact form and blog post of author
 */
  ?>
 <?php get_header( ); ?>

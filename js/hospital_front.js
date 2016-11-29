@@ -6,20 +6,6 @@ jQuery(document).ready(function($){
   var subject_email = $("#subject_email").val();
   var message_email= $("#message_email").val();
 
-
-  // var datastring =  'to_email='+ to_email
-  //                   + '&name_email=' + name_email
-  //                   + '&from_email=' + from_email
-  //                   + '&subject_email=' + subject_email
-  //                   +'&message_email=' + message_email;
-
-  // var datastring =  'to_email : '+ to_email
-  //                   + ', name_email :' + name_email
-  //                   + ', from_email : ' + from_email
-  //                   + ', subject_email : ' + subject_email
-  //                   +', message_email : ' + message_email;
-
-
   $.ajax({
     datatype : "json",
     type : "post",
@@ -33,10 +19,12 @@ jQuery(document).ready(function($){
           },
     success:function(result) {
             // This outputs the result of the ajax request
-            $("#email_result").html(result);
+            alert (result);
+            // $("#email_result").html(result);
         },
         error: function(errorThrown){
-            $("#email_result").html(errorThrown);
+            // $("#email_result").html(errorThrown);
+            alert(errorThrown);
 
             }
     });

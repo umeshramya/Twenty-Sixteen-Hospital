@@ -35,7 +35,7 @@ Template Name: Author
 							<input type="button"  name="btn_contact" id="btn_contact" value="Send email">
 
 						</form>
-            <div id="email_result">email resukt</div>
+            <div id="email_result"></div>
 				<div style="clear: both;"></div><!-- dummy div for clear floats-->
 			</div>
 			<br>

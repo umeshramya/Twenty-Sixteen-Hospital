@@ -14,38 +14,40 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 			<div class="archive-posts-wraper-hospital">
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
     <?php
+    $faculty_hirerachy_array = explode(',' , get_option('faculty_hirerachy' ));
+    foreach ($faculty_hirerachy_array as $faculty_hirerachy) {
 
-    $args_inner = array(
-
-      'meta_key' => 'user_faculty_hirerachy',
-      'meat_value' => 'HOD'
+      $args_inner = array(
+        'meta_query' => array( array(
+        'key' => 'user_faculty_hirerachy',
+        'value' => trim($faculty_hirerachy),
+        'compare' => '='))
         );
         // The Query
         $user_query = new WP_User_Query( $args_inner );
 
         // User Loop
         if ( ! empty( $user_query->results ) ) {
+        echo '<h2>'.$faculty_hirerachy.'</h2>';
         	foreach ( $user_query->results as $author ) {
+
             echo '<div class="archive-post-hospital">';
-            $author_info = get_userdata($author->ID);
+            // $author_info = get_userdata($author->ID);
               $link = get_author_posts_url( $author->ID);
-              echo  get_avatar( $author->ID, 128 ) ;
-
-              echo '<a href="'. $link .'">'.
-              '<h2>'.  $author->display_name . '</h2>' .
-                $author->qualification . '</br>' .
-              $author->user_department . '</br>' .
-
-
-              '</a>';
-
-
+                    echo '<a href="'. $link .'">'.
+                    get_avatar( $author->ID, 128 ) .
+                    '<h2>'. $author->display_name . '</h2>' .
+                            $author->qualification . '</br>' .
+                            $author->user_department . '</br>' .
+                    '</a>';
 
             echo '</div>';
-        	}
-        } else {
-        	echo 'No users found.';
-        }
+        	}//end of inner foreach loop
+          echo '<div style="clear: both;"></div>';//<!-- dummy div for clear floats-->
+          echo '<hr>';
+        }//end of if
+
+      }//outer foreach end
      ?>
 
 	</div><!--.archive-posts-wraper-hospital-->
@@ -53,11 +55,8 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 		<div style="clear: both;"></div>
 		<div class="hospital-old-new-posts">
 			<?php
-				the_posts_pagination( array(
-					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-					'next_text'          => __( 'Next page', 'twentysixteen' ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-				) );
+
+      //this div meant for creating pagination 
 			 ?>
 		</div><!--.hospital-old-new-posts -->
 

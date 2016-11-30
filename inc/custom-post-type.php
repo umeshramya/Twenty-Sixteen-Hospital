@@ -92,20 +92,20 @@ echo '<select name="user_department" id="user_department"/>';
 
 echo '<option value="Select Department">Select Department</option>';
 foreach ($departments_array as $department) {
-    echo '<option value="'. $department .'"';
-    if ($cur_user_department== $department ){echo 'selected="true"';}
-   echo  '>'. $department .'</option>';
+    echo '<option value="'. trim($department) .'"';
+    if ($cur_user_department== trim($department) ){echo 'selected="true"';}
+   echo  '>'. trim($department) .'</option>';
 }
   echo '</select></br>';
 // ===================Qulification===================
 $cur_user_quilification=  esc_attr(get_the_author_meta( 'qualification', $user->ID ));
 echo '<label for="qualification">Qualification</label>';
-echo '<input type="text" name="qualification" id="qualification" value="'. $cur_user_quilification .'"/></br>';
+echo '<input type="text" name="qualification" id="qualification" value="'. trim($cur_user_quilification) .'"/></br>';
 
 // ===================Registretion Number============
 $cur_user_registration=  esc_attr(get_the_author_meta( 'registration_number', $user->ID ));
 echo '<label for="registration_number">Registration Number</label>';
-echo '<input type="text" name="registration_number" id="registration_number" value="'. $cur_user_registration .'"/></br>';
+echo '<input type="text" name="registration_number" id="registration_number" value="'. trim($cur_user_registration) .'"/></br>';
 
 // ===================faculty Hirerachy=============
 $cur_user_faculty_hirerachy = esc_attr( get_the_author_meta( "user_faculty_hirerachy" , $user->ID  ) );
@@ -116,9 +116,9 @@ echo '<select name="user_faculty_hirerachy" id="user_faculty_hirerachy"/>';
 
 echo '<option value="Select faculty hirerachy">Select faculty hirerachy</option>';
 foreach ($faculty_hirerachy_array as $faculty_hirerachy) {
-    echo '<option value="'. $faculty_hirerachy .'"';
-    if ($cur_user_faculty_hirerachy== $faculty_hirerachy ){echo 'selected="true"';}
-   echo  '>'. $faculty_hirerachy .'</option>';
+    echo '<option value="'. trim($faculty_hirerachy) .'"';
+    if ($cur_user_faculty_hirerachy== trim($faculty_hirerachy) ){echo 'selected="true"';}
+   echo  '>'. trim($faculty_hirerachy) .'</option>';
 }
   echo '</select></br>';
 

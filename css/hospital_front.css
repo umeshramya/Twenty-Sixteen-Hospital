@@ -150,12 +150,7 @@ Below styles are meant overide twentysixteen stylles
 These may be required change when parent theme is changed.
 ============================================================
 */
-.author-avatar .avatar{
-float: left;
-height: 120px;
-margin: 0 1.75em 1.75em 0;
-width: 120px;
-}
-.site .avatar{
-  border-radius: 5%;
+
+.site .avatar {
+    border-radius: 5%;
 }

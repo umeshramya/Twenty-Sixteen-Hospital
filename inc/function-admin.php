@@ -52,7 +52,7 @@ function hospital_theme_custom_settings(){
   register_setting( 'hospital-theme-group', 'private_insurence' );
   register_setting( 'hospital-theme-group', 'goverment_schemes' );
 
-  register_setting( 'hospital-theme-group', 'faculty_hirerachy');
+  register_setting( 'hospital-theme-group', 'faculty_hierarchy');
 
   register_setting( 'hospital-theme-group', 'profile_picture' );  //social media
   register_setting( 'hospital-theme-group', 'facebook_handler' );
@@ -73,7 +73,7 @@ function hospital_theme_custom_settings(){
   add_settings_field( 'hospital-facilities', 'Facilities', 'hospital_sidebar_facilities', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospital-private-insurence', 'Private Insurence', 'hospital_sidebar_priavte_insurence', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospita_goverment-schemes', 'Goverment Schemes', 'hospital_goverment_schemes', 'umesh_hospital', 'hospital_sidebar_options' );
-  add_settings_field( 'hospital-faculty-hirerachy', 'Faculty Hirerachy', 'hospital_faculty_hirerachy', 'umesh_hospital', 'hospital_sidebar_options');
+  add_settings_field( 'hospital-faculty-hierarchy', 'Faculty Hierarchy', 'hospital_faculty_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'sidebar-profile-picture', 'Hospital Profile picture', 'hospital_sidebar_profile_picture', 'umesh_hospital', 'hospital_sidebar_options');
 
 }
@@ -158,9 +158,9 @@ function hospital_goverment_schemes(){
   echo '<p> Use approprite caps and small letters</p>';
 }
 
-function hospital_faculty_hirerachy(){
-  $faculty_hirerachy= esc_attr( get_option( 'faculty_hirerachy' ) );
-  echo '<input type="text" name="faculty_hirerachy" value="' . $faculty_hirerachy . '" placeholder="Faculty hirerachy" style="width:100%";/>';
+function hospital_faculty_hierarchy(){
+  $faculty_hierarchy= esc_attr( get_option( 'faculty_hierarchy' ) );
+  echo '<input type="text" name="faculty_hierarchy" value="' . $faculty_hierarchy . '" placeholder="Faculty hierarchy" style="width:100%";/>';
   echo '<p>Enter each postion by coma separtation </p>';
   echo '<p>Example :- HOD, Senior Consultant, Consultant, Resident, Techanician, Nurse, Ward boy</p>';
   echo '<p> Use approprite caps and small letters</p>';
@@ -190,6 +190,93 @@ function hospital_sidebar_options(){
   // echo '<h3>custom hopsital sidebar options</h3>';
 }
 
+
+
+
+
+
+
+/*
+====================
+USER ADD metabox
+====================
+
+*/
+add_action( 'show_user_profile', 'hospital_user_fields');
+add_action( 'edit_user_profile', 'hospital_user_fields');
+
+function hospital_user_fields($user){
+// ==============departments options================================
+$cur_user_department=  esc_attr(get_the_author_meta( 'user_department', $user->ID ));
+$departments_array = explode (',' ,  get_option('departements'));
+
+echo '<label for="user_department"/> Department </label>';
+echo '<select name="user_department" id="user_department"/>';
+
+echo '<option value="Select Department">Select Department</option>';
+foreach ($departments_array as $department) {
+    echo '<option value="'. trim($department) .'"';
+    if ($cur_user_department== trim($department) ){echo 'selected="true"';}
+   echo  '>'. trim($department) .'</option>';
+}
+  echo '</select></br>';
+// ===================Qulification===================
+$cur_user_quilification=  esc_attr(get_the_author_meta( 'qualification', $user->ID ));
+echo '<label for="qualification">Qualification</label>';
+echo '<input type="text" name="qualification" id="qualification" value="'. trim($cur_user_quilification) .'"/></br>';
+
+// ===================Registretion Number============
+$cur_user_registration=  esc_attr(get_the_author_meta( 'registration_number', $user->ID ));
+echo '<label for="registration_number">Registration Number</label>';
+echo '<input type="text" name="registration_number" id="registration_number" value="'. trim($cur_user_registration) .'"/></br>';
+
+// ===================faculty Hirerachy=============
+$cur_user_faculty_hierarchy = esc_attr( get_the_author_meta( "user_faculty_hierarchy" , $user->ID  ) );
+$faculty_hierarchy_array =explode (',' ,  get_option('faculty_hierarchy'));
+
+echo '<label for="user_faculty_hierarchy"/> Faculty Hierarchy </label>';
+echo '<select name="user_faculty_hierarchy" id="user_faculty_hierarchy"/>';
+
+echo '<option value="Select faculty hierarchy">Select faculty hierarchy</option>';
+foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
+    echo '<option value="'. trim($faculty_hierarchy) .'"';
+    if ($cur_user_faculty_hierarchy== trim($faculty_hierarchy) ){echo 'selected="true"';}
+   echo  '>'. trim($faculty_hierarchy) .'</option>';
+}
+  echo '</select></br>';
+
+//=====================Activate Contact Form per authot=========
+
+$option_checked=  esc_attr(get_the_author_meta( 'activate_contact_form', $user->ID ));
+$checked = (@$option_checked==1 ? 'checked':'');
+echo '<label for="activate_contact_form">Activate Contact Form </label>';
+echo '<input type="checkbox"  name="activate_contact_form"  value="1" '. $checked .' /></br>';
+
+// echo '<input type="text" name="registration_number" id="registration_number" value="'. trim($cur_user_registration) .'"/></br>';
+//
+// $option_checked = get_option( 'activate_contact' );
+// $checked = (@$option_checked==1 ? 'checked':'');
+// echo '<label> <input type="checkbox"  name="activate_contact"  value="1" '. $checked .' /></label> </br>';
+
+// ====================Consulation Time=============
+// ====================On leave setting=============
+
+}
+
+add_action( 'personal_options_update','hospital_save_user_data' );
+add_action( 'edit_user_profile_update', 'hospital_save_user_data' );
+function hospital_save_user_data($user){
+  if(!current_user_can( 'edit_user',$user )){
+    return false;
+  }
+
+  update_user_meta( $user, 'user_department', $_POST['user_department']);
+  update_user_meta ($user, 'qualification', $_POST['qualification'] );
+  update_user_meta ($user, 'registration_number', $_POST['registration_number'] );
+  update_user_meta( $user, 'user_faculty_hierarchy', $_POST['user_faculty_hierarchy'] );
+  update_user_meta( $user, 'activate_contact_form', $_POST['activate_contact_form'] );
+
+}
 
 
 

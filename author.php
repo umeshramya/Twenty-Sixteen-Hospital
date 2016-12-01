@@ -19,6 +19,13 @@ this is of single with descrption of Author contact form and blog post of author
 						<?php echo the_author_meta('user_department').'<br>'; ?>
 						<?php echo the_author_meta ('description').'<br>'; ?>
 					</div>
+
+          <?php
+          // code check user checked activate contactfrom
+          $option_checked=  esc_attr(get_the_author_meta( 'activate_contact_form'));
+          if(@$option_checked==1){
+            ?>
+
 					<div class="hospital-contact-form" >
 						<h2> Send email to <?php echo the_author_meta('display_name');  ?></h2>
 						<form class="hospital_contact_form" id="author_contact_form">
@@ -36,6 +43,8 @@ this is of single with descrption of Author contact form and blog post of author
 
 						</form>
             <div id="email_result"></div>
+            <?php } ?><!-- end of if statment for activate contact form-->
+
 				<div style="clear: both;"></div><!-- dummy div for clear floats-->
 			</div>
 			<br>

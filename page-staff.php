@@ -1,7 +1,6 @@
 <?php
 /*
-Template Name : All staff list
-This template is for displaying archives of facilties like CT SCan, MRI etc
+Template Name: All staff list
 */
  ?>
 
@@ -35,7 +34,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
             // $author_info = get_userdata($author->ID);
               $link = get_author_posts_url( $author->ID);
                     echo '<a href="'. $link .'">'.
-                    get_avatar( $author->ID, 128 ) .
+                    get_avatar( $author->ID, 160 ) .
                     '<h2>'. $author->display_name . '</h2>' .
                             $author->qualification . '</br>' .
                             $author->user_department . '</br>' .
@@ -44,7 +43,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
             echo '</div>';
         	}//end of inner foreach loop
           echo '<div style="clear: both;"></div>';//<!-- dummy div for clear floats-->
-          echo '<hr>';
+          echo '<br><hr>';
         }//end of if
 
       }//outer foreach end
@@ -56,7 +55,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 		<div class="hospital-old-new-posts">
 			<?php
 
-      //this div meant for creating pagination 
+      //this div meant for creating pagination
 			 ?>
 		</div><!--.hospital-old-new-posts -->
 

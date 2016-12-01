@@ -8,7 +8,7 @@ This template is for displaying archives of departments like cardiology, surgery
 <?php get_header( ); ?>
 <header>
 	<div class="title-hospital-wraper"><h1> Departments</h1> </div>
-	
+
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">

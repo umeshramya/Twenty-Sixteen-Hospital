@@ -13,13 +13,13 @@ Template Name: All staff list
 			<div class="archive-posts-wraper-hospital">
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
     <?php
-    $faculty_hirerachy_array = explode(',' , get_option('faculty_hirerachy' ));
-    foreach ($faculty_hirerachy_array as $faculty_hirerachy) {
+    $faculty_hierarchy_array = explode(',' , get_option('faculty_hierarchy' ));
+    foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
 
       $args_inner = array(
         'meta_query' => array( array(
-        'key' => 'user_faculty_hirerachy',
-        'value' => trim($faculty_hirerachy),
+        'key' => 'user_faculty_hierarchy',
+        'value' => trim($faculty_hierarchy),
         'compare' => '='))
         );
         // The Query
@@ -27,11 +27,10 @@ Template Name: All staff list
 
         // User Loop
         if ( ! empty( $user_query->results ) ) {
-        echo '<h2>'.$faculty_hirerachy.'</h2>';
+        echo '<h2>'.$faculty_hierarchy.'</h2>';
         	foreach ( $user_query->results as $author ) {
 
-            echo '<div class="archive-post-hospital">';
-            // $author_info = get_userdata($author->ID);
+            echo '<div class="archive-post-hospital author-links">';
               $link = get_author_posts_url( $author->ID);
                     echo '<a href="'. $link .'">'.
                     get_avatar( $author->ID, 160 ) .

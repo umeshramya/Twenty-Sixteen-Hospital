@@ -10,6 +10,7 @@ require get_stylesheet_directory() . '/enqueue.php';
 require get_stylesheet_directory() . '/inc/theme-supports.php';
 require get_stylesheet_directory() . '/inc/custom-post-type.php';
 require get_stylesheet_directory() .'/inc/function-front.php';
-// http://localhost/wordpress/?post_type=departments
+require get_stylesheet_directory() .'/inc/shortcodes.php';
+
 
 ?>

@@ -9,8 +9,9 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area-hospital">
-	<main id="main" class="site-main" role="main">
+<div id="primary" class="content-area-without-sidebar-hospital">
+		<main role="main">
+			<div class="archive-posts-wraper-hospital">
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -43,7 +44,7 @@ get_header(); ?>
 			// End of the loop.
 		endwhile;
 		?>
-
+</div>
 	</main><!-- .site-main -->
 
 </div><!-- .content-area -hospital-->

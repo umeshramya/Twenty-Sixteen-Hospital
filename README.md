@@ -10,13 +10,13 @@ after actiavtion goto admim penal
 select Hospital from menu in admin area.
 Enter hospital details.
 
-Special fields in hospital page in admin area
+##Special fields in hospital page in admin area
 1. Departements
 2. Facilities
 3. Faculty Hierarchy
 
 
-1. Departements
+###1. Departements
   1.1. Declare all the departements in your hospital page.
   1.2. Arrage them as per importance
   1.3. Please note that same order archive page of departements uses to display
@@ -30,7 +30,7 @@ Special fields in hospital page in admin area
       1.9.2. To hide departement just set to draft.
       1.9.3. To rearrange the order change the date of publish (newest will first to display)
 
-2. Facilities
+###2. Facilities
   2.1. Declare all the Facilities in your hospital page.
   2.2. Arrage them as per importance
   2.3. Please note that same order archive page of Facilities uses to display
@@ -44,15 +44,15 @@ Special fields in hospital page in admin area
       2.9.2. To hide Facilities just set to draft.
       2.9.3. To rearrange the order change the date of publish (newest will first to display)
 
-3. Faculty Hierarchy
+###3. Faculty Hierarchy
   3.1. This field is for seting up positiion of users like HOD, Associate Professor, Assistant professor, Resident, Techaniacian, Nusre. One can declere them as per need of the hopistal.
-  3.2.  Note Order of mention will be used as seniority
+  3.2. Note Order of mention will be used as seniority
 
 
 
-#4.  How to activate author or user profile page with contact form?
-    4.1.  Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
-    4.2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
+##How to activate author or user profile page with contact form?
+ 1. Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
+ 2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
 
 
 ======================

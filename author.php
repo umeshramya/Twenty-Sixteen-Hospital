@@ -21,7 +21,7 @@ this is of single with descrption of Author contact form and blog post of author
 					</div>
 
           <?php
-          // code check user checked activate contactfrom
+          // code check user checked activate contactfrom both needed checked to get form
           $option_author_checked = get_option( 'activate_contact' );
           $option_checked=  esc_attr(get_the_author_meta( 'activate_contact_form'));
           if((@$option_checked==1) && (@$option_author_checked==1)){

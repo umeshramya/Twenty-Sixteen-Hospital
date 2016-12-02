@@ -44,6 +44,8 @@ Special fields in hospital page in admin area
       2.9.3. To rearrange the order change the date of publish (newest will first to display)
 
 3. Faculty Hierarchy
+  3.1. This field is for seting up positiion of users like HOD, Associate Professor, Assistant professor, Resident, Techaniacian, Nusre. One can declere them as per need of the hopistal.
+  3.2.  Note Order of mention will be used as seniority
 
 ======================
 SHORT CODES

@@ -55,14 +55,15 @@ Enter hospital details.
  2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
 
 
-======================
-#SHORT CODES
-======================
+---
+SHORT CODES
+---
+
 Please note these are important parts of this theme will go long way desgning website for hospital
 
 
 [faculty_by_hierarchy_department hierarchy = ""]
-
+---
 hierarchy :- this atribute is to be taken from user_faculty_hierarchy(user profile page) or from faculty_hierarchy ( hospital menu page).
 this short code will detect departement from titile.
 to be used in custom post type Departements.

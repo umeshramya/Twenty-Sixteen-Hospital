@@ -203,4 +203,188 @@ add_action('init', 'hospital_insert_facility_posts');
 
 
 
+
+ /*
+ ============================
+ Carriers custom post type
+ ============================
+ */
+
+ add_action( 'init', 'hospital_carrier_custom_post_type');
+ function hospital_carrier_custom_post_type(){
+   $labels = array(
+  		"singular_name" => __( 'Carrier' ),
+  		"menu_name" => __( 'Carrier' ),
+  		"archives" => __( 'true' ),
+  		);
+
+  	$args = array(
+  		"label" => __( 'Carriers' ),
+  		"labels" => $labels,
+  		"description" => "These posts for adding Carriers inside the hospital",
+  		"public" => true,
+  		"publicly_queryable" => true,
+  		"show_ui" => true,
+  		"show_in_rest" => false,
+  		"rest_base" => "",
+  		"has_archive" => true,
+  		"show_in_menu" => true,
+  				"exclude_from_search" => false,
+  		"capability_type" => "post",
+     	"map_meta_cap" => true,
+  		"hierarchical" => false,
+  		"rewrite" => array( "slug" => "carriers", "with_front" => true ),
+  		"query_var" => true,
+     "menu_icon" =>'',
+  		"supports" => array( "title" ));
+    	register_post_type( "carriers", $args );
+
+
+ }
+
+ add_action( 'add_meta_boxes',function(){
+
+
+add_meta_box( 'job_description', 'Job Description',
+    function($post){
+      wp_nonce_field( 'hospital_save_job_description',  "hospital_job_description_nounce" );
+
+
+
+    $job_description = get_post_meta( $post->ID );
+
+
+    if(!empty($job_description['job_title'])){
+      $job_title =$job_description['job_title'][0];
+    }else{
+      $job_title='';
+    }
+
+
+    if(!empty($job_description['opening_date'])){
+      $opening_date =$job_description['opening_date'][0];
+    }else{
+      $opening_date='';
+    }
+
+    if(!empty($job_description['closing_date'])){
+      $closing_date =$job_description['closing_date'][0];
+    }else{
+      $closing_date='';
+    }
+
+    if(!empty($job_description['interview_date'])){
+      $interview_date =$job_description['interview_date'][0];
+    }else{
+      $interview_date='';
+    }
+
+
+    if(!empty($job_description['salary_range'])){
+      $salary_range = $job_description['salary_range'][0];
+    }else{
+      $salary_range='';
+    }
+
+    if(!empty($job_description['email_copy'])){
+      $email_copy =$job_description['email_copy'][0];
+    }else{
+      $email_copy='';
+    }
+
+
+
+
+
+
+      echo '<div class="element_wrap">
+            <label for="job_title">Job Title <br></label>
+             <input type="text" name="job_title" id="job_title" style="width:100%" required value="' . $job_title .'">
+             </div>';
+
+      echo '<div class="element_wrap">
+            <label for="opening_date">Opening Date<br></label>
+             <input type="date" name="opening_date" id="opening_date" value="' . $opening_date .'">
+             </div>';
+
+       echo '<div class="element_wrap">
+            <label for="closing_date">Closing Date<br></label>
+            <input type="date" name="closing_date" id="closing_date"  value="'.$closing_date.'">
+            </div>';
+
+      echo '<div class="element_wrap">
+            <label for="interview_date">Interview Date <br></label>
+            <input type="date" name="interview_date" id="interview_date" value="' . $interview_date .'">
+            </div>';
+
+      echo '<div class="element_wrap">
+            <label for="salary_range">Salary Range<br></label>
+             <input type="text" name="salary_range" id="salary_range" style="width:100%" value="' . $salary_range .'">
+             </div>';
+
+     echo '<div class="element_wrap">
+            <label for="email_copy">Email Copy</label>
+            <input type="email" name="email_copy" id="email_copy" style="width:100%" value="' . $email_copy .'">
+            </div> <br>';
+
+            $content = get_post_meta( $post->ID, 'principle_duties', true);
+            $editor_id= 'principle_duties';
+            $settings =array(
+              'textarea_rows' => 8,
+              'media_buttons' => true);
+              wp_editor( $content, $editor_id, $settings );
+
+},
+      'carriers','normal', 'high');
+
+
+ } );
+
+add_action( 'save_post', 'hospital_save_job_description');
+ function hospital_save_job_description($post_id){
+
+   if (isset($_POST['job_title'])){
+     $meta_value = sanitize_text_field($_POST['job_title']);
+     if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+       update_post_meta( $post_id, 'job_title', $meta_value );
+      }
+    }
+
+
+    if (isset($_POST['opening_date'])){
+      $meta_value =  ($_POST['opening_date']);
+        update_post_meta( $post_id, 'opening_date', $meta_value );
+     }
+
+     if (isset($_POST['closing_date'])){
+       $meta_value =  ($_POST['closing_date']);
+         update_post_meta( $post_id, 'closing_date', $meta_value );
+      }
+      if (isset($_POST['interview_date'])){
+        $meta_value =  ($_POST['interview_date']);
+          update_post_meta( $post_id, 'interview_date', $meta_value );
+       }
+
+
+
+
+      if (isset($_POST['salary_range'])){
+        $meta_value =  sanitize_text_field($_POST['salary_range']);
+        if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+          update_post_meta( $post_id, 'salary_range', $meta_value );
+         }
+       }
+
+       if (isset($_POST['email_copy'])){
+         $meta_value = $_POST['email_copy'];
+         if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+           update_post_meta( $post_id, 'email_copy', $meta_value );
+          }
+        }
+
+
+
+ }
+
+
  ?>

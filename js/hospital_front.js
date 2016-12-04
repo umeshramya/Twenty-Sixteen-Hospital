@@ -5,7 +5,6 @@ jQuery(document).ready(function($){
   var from_email = $("#from_email").val();
   var subject_email = $("#subject_email").val();
   var message_email= $("#message_email").val();
-
   $.ajax({
     datatype : "json",
     type : "post",

@@ -10,7 +10,7 @@ Template Name: All staff list
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">
-			<div class="archive-posts-wraper-hospital">
+		<div class="archive-posts-wraper-hospital">
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
     <?php
     $faculty_hierarchy_array = explode(',' , get_option('faculty_hierarchy' ));
@@ -29,17 +29,7 @@ Template Name: All staff list
         if ( ! empty( $user_query->results ) ) {
         echo '<h2>'.$faculty_hierarchy.'</h2>';
         	foreach ( $user_query->results as $author ) {
-
-            echo '<div class="archive-post-hospital author-links">';
-              $link = get_author_posts_url( $author->ID);
-                    echo '<a href="'. $link .'">'.
-                    get_avatar( $author->ID, 160 ) .
-                    '<h2>'. $author->display_name . '</h2>' .
-                            $author->qualification . '</br>' .
-                            $author->user_department . '</br>' .
-                    '</a>';
-
-            echo '</div>';
+          echo  faculty_return_string($author);//this function returns the archive link box of authors
         	}//end of inner foreach loop
           echo '<div style="clear: both;"></div>';//<!-- dummy div for clear floats-->
           echo '<br><hr>';

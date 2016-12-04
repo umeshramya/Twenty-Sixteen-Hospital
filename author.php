@@ -7,7 +7,10 @@ this display archives of single authore along with profile and contct form
 <?php get_header( ); ?>
 
 <header>
-	<div class="title-hospital-wraper"><h1><?php echo the_author_meta('display_name');  ?></h1> </div>
+
+<?php $user_id = $_GET['author']; ?>
+
+<div class="title-hospital-wraper"><h1><?php echo esc_attr(get_the_author_meta( 'display_name', $user_id));  ?></h1> </div>
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">

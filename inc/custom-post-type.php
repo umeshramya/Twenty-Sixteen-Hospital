@@ -252,23 +252,23 @@ add_meta_box( 'job_description', 'Job Description',
     }
 
     if(!empty($job_description['qualification'])){
-      $qualification =$job_description['qualification'][0];
+      $qualification =esc_attr($job_description['qualification'][0]);
     }else{
       $qualification='';
     }
 
     if(!empty($job_description['vacancies'])){
-      $vacancies =$job_description['vacancies'][0];
+      $vacancies =esc_attr($job_description['vacancies'][0]);
     }else{
       $vacancies='';
     }
 
 
-    if(!empty($job_description['opening_date'])){
-      $opening_date =$job_description['opening_date'][0];
-    }else{
-      $opening_date='';
-    }
+    // if(!empty($job_description['opening_date'])){
+    //   $opening_date =$job_description['opening_date'][0];
+    // }else{
+    //   $opening_date='';
+    // }
 
     if(!empty($job_description['closing_date'])){
       $closing_date =$job_description['closing_date'][0];
@@ -276,11 +276,11 @@ add_meta_box( 'job_description', 'Job Description',
       $closing_date='';
     }
 
-    if(!empty($job_description['interview_date'])){
-      $interview_date =$job_description['interview_date'][0];
-    }else{
-      $interview_date='';
-    }
+    // if(!empty($job_description['interview_date'])){
+    //   $interview_date =$job_description['interview_date'][0];
+    // }else{
+    //   $interview_date='';
+    // }
 
 
     if(!empty($job_description['salary_range'])){
@@ -318,20 +318,20 @@ add_meta_box( 'job_description', 'Job Description',
            <input type="text" name="vacancies" id="vacancies" style="width:100%" value="' . $vacancies .'">
            </div>';
 
-      echo '<div class="element_wrap">
-            <label for="opening_date">Opening Date<br></label>
-             <input type="date" name="opening_date" id="opening_date" value="' . $opening_date .'">
-             </div>';
+      // echo '<div class="element_wrap">
+      //       <label for="opening_date">Opening Date<br></label>
+      //        <input type="date" name="opening_date" id="opening_date" value="' . $opening_date .'">
+      //        </div>';
 
        echo '<div class="element_wrap">
-            <label for="closing_date">Closing Date<br></label>
+            <label for="closing_date">Closing Date <strong>(Not visible to public after set date)</strong><br></label>
             <input type="date" name="closing_date" id="closing_date"  value="'.$closing_date.'">
             </div>';
 
-      echo '<div class="element_wrap">
-            <label for="interview_date">Interview Date <br></label>
-            <input type="date" name="interview_date" id="interview_date" value="' . $interview_date .'">
-            </div>';
+      // echo '<div class="element_wrap">
+      //       <label for="interview_date">Interview Date <br></label>
+      //       <input type="date" name="interview_date" id="interview_date" value="' . $interview_date .'">
+      //       </div>';
 
       echo '<div class="element_wrap">
             <label for="salary_range">Salary Range<br></label>
@@ -401,19 +401,19 @@ add_action( 'save_post', 'hospital_save_job_description');
 
 
 
-    if (isset($_POST['opening_date'])){
-      $meta_value =  ($_POST['opening_date']);
-        update_post_meta( $post_id, 'opening_date', $meta_value );
-     }
+    // if (isset($_POST['opening_date'])){
+    //   $meta_value =  ($_POST['opening_date']);
+    //     update_post_meta( $post_id, 'opening_date', $meta_value );
+    //  }
 
      if (isset($_POST['closing_date'])){
        $meta_value =  ($_POST['closing_date']);
          update_post_meta( $post_id, 'closing_date', $meta_value );
       }
-      if (isset($_POST['interview_date'])){
-        $meta_value =  ($_POST['interview_date']);
-          update_post_meta( $post_id, 'interview_date', $meta_value );
-       }
+      // if (isset($_POST['interview_date'])){
+      //   $meta_value =  ($_POST['interview_date']);
+      //     update_post_meta( $post_id, 'interview_date', $meta_value );
+      //  }
 
 
 

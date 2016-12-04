@@ -68,8 +68,40 @@ function hospital_send_email_author_callback(){
 }
 
 
+/*
+==================================================================
+faculty_return_string
+this function returns the author details for dsiplay as acrhive
+===============================================================
+*/
+function faculty_return_string($author){
+$return_string = '<div class="archive-post-hospital author-links">';
+$user_post_count =  count_user_posts( $author->ID,  'post',  true );
+
+$link = get_author_posts_url($author->ID);
+$return_string = $return_string .  '<a href="'. $link .'">'.
+        get_avatar( $author->ID, 160 ) .
+        '<h2>'. $author->display_name . '</h2>' .
+                $author->qualification . '</br>' .
+                $author->user_department . '</br>' .
+        '</a>';
+
+    $return_string = $return_string .  '</div>';
+
+  return $return_string;
+}
 
 
+
+/*
+================================
+Creatig menu items for archives
+1. Departements
+2. facilities
+3. Carriers
+
+================================
+*/
 
 $menu_name = 'Header menu';
 $menu_exists = wp_get_nav_menu_object( $menu_name );
@@ -97,6 +129,11 @@ if( !$menu_exists){
         'menu-item-url' => home_url( '/?post_type=departments' ),
         'menu-item-status' => 'publish'));
 
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Carriers'),
+             'menu-item-object' => 'archive',
+            'menu-item-url' => home_url( '/?post_type=carriers' ),
+            'menu-item-status' => 'publish'));
 }
 
 

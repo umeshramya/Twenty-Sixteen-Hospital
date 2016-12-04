@@ -6,7 +6,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 
 <?php get_header( ); ?>
 <header>
-	<div class="title-hospital-wraper"><h1>Facilities</h1> </div>
+	<div class="title-hospital-wraper"><h1>Carriers</h1> </div>
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">
@@ -17,7 +17,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 		<?php 	while ( have_posts() ) : the_post();?>
 
 
-				<?php get_template_part( '/template-parts/content', 'custom-archive' ); ?>
+				<?php get_template_part( '/template-parts/content', 'carriers-archive' ); ?>
 
 
 

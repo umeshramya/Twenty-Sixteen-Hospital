@@ -18,7 +18,7 @@ This template is for displaying archives of departments like cardiology, surgery
 
 		<?php 	while ( have_posts() ) : the_post();?>
 
-			<?php get_template_part( '/template-parts/content', 'archive' ); ?>
+			<?php get_template_part( '/template-parts/content', 'custom-archive' ); ?>
 
 		<?php endwhile  ?>
 

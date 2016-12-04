@@ -86,28 +86,7 @@ return $return_string;
 } );
 
 
-/*
-==================================================================
-faculty_return_string
-this function returns the author details for dsiplay as acrhive
-===============================================================
-*/
-function faculty_return_string($author){
-$return_string = '<div class="archive-post-hospital author-links">';
-$user_post_count =  count_user_posts( $author->ID,  'post',  true );
 
-$link = get_author_posts_url($author->ID);
-$return_string = $return_string .  '<a href="'. $link .'">'.
-        get_avatar( $author->ID, 160 ) .
-        '<h2>'. $author->display_name . '</h2>' .
-                $author->qualification . '</br>' .
-                $author->user_department . '</br>' .
-        '</a>';
-
-    $return_string = $return_string .  '</div>';
-
-  return $return_string;
-}
 
 
 

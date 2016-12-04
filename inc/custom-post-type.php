@@ -200,10 +200,6 @@ if (null==$post_object){
 
 add_action('init', 'hospital_insert_facility_posts');
 
-
-
-
-
  /*
  ============================
  Carriers custom post type
@@ -242,22 +238,29 @@ add_action('init', 'hospital_insert_facility_posts');
 
  }
 
- add_action( 'add_meta_boxes',function(){
-
-
+add_action( 'add_meta_boxes',function(){
 add_meta_box( 'job_description', 'Job Description',
     function($post){
       wp_nonce_field( 'hospital_save_job_description',  "hospital_job_description_nounce" );
 
-
-
     $job_description = get_post_meta( $post->ID );
 
-
     if(!empty($job_description['job_title'])){
-      $job_title =$job_description['job_title'][0];
+      $job_title =esc_attr($job_description['job_title'][0]);
     }else{
       $job_title='';
+    }
+
+    if(!empty($job_description['qualification'])){
+      $qualification =$job_description['qualification'][0];
+    }else{
+      $qualification='';
+    }
+
+    if(!empty($job_description['vacancies'])){
+      $vacancies =$job_description['vacancies'][0];
+    }else{
+      $vacancies='';
     }
 
 
@@ -292,7 +295,10 @@ add_meta_box( 'job_description', 'Job Description',
       $email_copy='';
     }
 
-
+    // if(!empty($job_description['close_applications'][0])){
+    // $option_checked  =$job_description['close_applications'][0];
+    // $close_applications = (@$option_checked==1 ? 'checked':'');
+    // }
 
 
 
@@ -301,6 +307,16 @@ add_meta_box( 'job_description', 'Job Description',
             <label for="job_title">Job Title <br></label>
              <input type="text" name="job_title" id="job_title" style="width:100%" required value="' . $job_title .'">
              </div>';
+
+     echo '<div class="element_wrap">
+           <label for="qualification">Qualification <br></label>
+            <input type="text" name="qualification" id="qualification" style="width:100%" value="' . $qualification .'">
+            </div>';
+
+    echo '<div class="element_wrap">
+          <label for="vacancies">vacancies <br></label>
+           <input type="text" name="vacancies" id="vacancies" style="width:100%" value="' . $vacancies .'">
+           </div>';
 
       echo '<div class="element_wrap">
             <label for="opening_date">Opening Date<br></label>
@@ -325,7 +341,7 @@ add_meta_box( 'job_description', 'Job Description',
      echo '<div class="element_wrap">
             <label for="email_copy">Email Copy</label>
             <input type="email" name="email_copy" id="email_copy" style="width:100%" value="' . $email_copy .'">
-            </div> <br>';
+            </div> <br><br>';
 
             $content = get_post_meta( $post->ID, 'principle_duties', true);
             $editor_id= 'principle_duties';
@@ -333,6 +349,21 @@ add_meta_box( 'job_description', 'Job Description',
               'textarea_rows' => 8,
               'media_buttons' => true);
               wp_editor( $content, $editor_id, $settings );
+
+
+            //   if (!empty($close_applications) && (!$close_applications == 0)){
+            //   echo '<br><div class="element_wrap">
+            //          <label for="close_applications">Close Applications</label>
+            //          <input type="checkbox"  name="close_applications" id="close_applications" value="1" '. $close_applications .' />
+            //          </div> <br>';
+            //        }else{
+            //  echo '<br><div class="element_wrap">
+            //         <label for="close_applications">Close Applications</label>
+            //         <input type="checkbox"  name="close_applications"  value="1"/>
+            //         </div> <br>';
+            //       }
+
+
 
 },
       'carriers','normal', 'high');
@@ -349,6 +380,25 @@ add_action( 'save_post', 'hospital_save_job_description');
        update_post_meta( $post_id, 'job_title', $meta_value );
       }
     }
+
+
+    if (isset($_POST['qualification'])){
+      $meta_value = sanitize_text_field($_POST['qualification']);
+      if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+        update_post_meta( $post_id, 'qualification', $meta_value );
+       }
+     }
+
+
+     if (isset($_POST['vacancies'])){
+       $meta_value = sanitize_text_field($_POST['vacancies']);
+       if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+         update_post_meta( $post_id, 'vacancies', $meta_value );
+        }
+      }
+
+
+
 
 
     if (isset($_POST['opening_date'])){
@@ -382,6 +432,19 @@ add_action( 'save_post', 'hospital_save_job_description');
           }
         }
 
+        if (isset($_POST['principle_duties'])){
+          $meta_value = $_POST['principle_duties'];
+          if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+            update_post_meta( $post_id, 'principle_duties', $meta_value );
+           }
+         }
+
+
+
+        // if(!empty( $_POST['close_applications'])){
+        // $meta_value = $_POST['close_applications'] ? 1 : 0;
+        // update_post_meta( $post_id, 'close_applications', $meta_value );
+        // }
 
 
  }

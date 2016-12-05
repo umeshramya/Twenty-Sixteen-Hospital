@@ -347,7 +347,7 @@ add_meta_box( 'job_description', 'Job Description',
             $editor_id= 'principle_duties';
             $settings =array(
               'textarea_rows' => 8,
-              'media_buttons' => true);
+              'media_buttons' => false);
               wp_editor( $content, $editor_id, $settings );
 
 

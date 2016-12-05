@@ -9,6 +9,7 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 	<div class="title-hospital-wraper"><h1>Carriers</h1> </div>
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
+
 		<main role="main">
 			<div class="archive-posts-wraper-hospital">
 		<?php if(have_posts()):	?>
@@ -39,4 +40,5 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 
 	 </main>
  </div><!--.content area-->
+
 <?php get_footer( ); ?>

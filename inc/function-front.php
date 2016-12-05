@@ -53,10 +53,10 @@ function hospital_send_email_author_callback(){
       throw new Exception('Message Body can not be empty');
     }
 
-    $headers = array(
-      From => $name_email . ' <' . $from_email . '>'
-      // ‘From:'. $name_email . ' <' . $from_email . '>'
-    );
+
+       $headers = "From:'.$from_email .' \r\n";
+       $headers .="Cc:'. get_option('hospital_email') .' \r\n";
+
 
         wp_mail( $to_email, $subject_email, $message_email,$from_email, $headers);
       echo "Submitted email";
@@ -76,15 +76,18 @@ this function returns the author details for dsiplay as acrhive
 */
 function faculty_return_string($author){
 $return_string = '<div class="archive-post-hospital author-links">';
-$user_post_count =  count_user_posts( $author->ID,  'post',  true );
+// $user_post_count =  count_user_posts( $author->ID,  'post',  true );
+// $_SESSION['author_ID']= $author->ID;
 
 $link = get_author_posts_url($author->ID);
-$return_string = $return_string .  '<a href="'. $link .'">'.
-        get_avatar( $author->ID, 160 ) .
+$return_string = $return_string .  '<div class="author_ID">'.
+          '<a href="'. $link .'">'.
+            get_avatar( $author->ID, 160 ) .
         '<h2>'. $author->display_name . '</h2>' .
                 $author->qualification . '</br>' .
                 $author->user_department . '</br>' .
-        '</a>';
+                '</a>'.
+              '</div>';
 
     $return_string = $return_string .  '</div>';
 

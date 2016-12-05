@@ -99,7 +99,7 @@ function activate_hopsital_contact_form(){
 
 function hospital_sidebar_name(){
 $hospital_name = esc_attr( get_option( 'hospital_name' ) );
-echo '<input type="text" name="hospital_name" value="' . $hospital_name . '" placeholder="Hospital Name"  style="width:100%"/>';
+echo '<span style="color:red">*</span><input type="text" name="hospital_name" value="' . $hospital_name . '" placeholder="Hospital Name"  style="width:50%; min-width:250px;" required/>';
 // echo '<input type="text" name="help_desk_phone" value="' . $help_desk_phone . '" placeholder="Help Desk Phone" />';
 }
 
@@ -112,14 +112,14 @@ function hospital_sidebar_phone(){
   $emergency_phone = esc_attr( get_option( 'emergency_phone' ) );
   $ambulance_phone = esc_attr( get_option( 'ambulance_phone' ) );
   $help_desk_phone = esc_attr( get_option( 'help_desk_phone' ) );
-echo '<input type="text" name="emergency_phone" value="' . $emergency_phone . '" placeholder="Emergency Phone" />';
+echo '<span style="color:red">*</span><input type="text" name="emergency_phone" value="' . $emergency_phone . '" placeholder="Emergency Phone" required/>';
 echo '<input type="text" name="ambulance_phone" value="' . $ambulance_phone . '" placeholder="Ambulance Phone" />';
 echo '<input type="text" name="help_desk_phone" value="' . $help_desk_phone . '" placeholder="Help Desk Phone" />';
 }
 
 function hospital_contact_email(){
   $contact_email = sanitize_email( get_option( 'hospital_email' ) );
-  echo '<input type="text" name="hospital_email" value="' . $contact_email . '" placeholder="Hospital email" />';
+  echo '<span style="color:red">*</span><input type="text" name="hospital_email" value="' . $contact_email . '" placeholder="Hospital email" required/>';
 }
 
 function hospital_office_phone(){

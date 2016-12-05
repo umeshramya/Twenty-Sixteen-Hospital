@@ -55,8 +55,8 @@ if(empty($hospital_email)){
 }
 
 
-
-echo '<a href="mailto:'.$hospital_email.'?subject='. get_the_title()  .'">Send application by email</a>';
+$email_display = 'email to with bio attachment : '. $hospital_email . '<br>use this subject line : ' . get_the_title();
+echo '<a href="mailto:'.$hospital_email.'?subject='. get_the_title()  .'">'. $email_display . '</a>';
 
 		echo '</br>';
 		 edit_post_link();

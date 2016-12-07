@@ -60,6 +60,7 @@ function hospital_send_email_author_callback(){
 
         wp_mail( $to_email, $subject_email , $message_email, $headers);
       echo "Submitted email";
+      die();
 
   } catch (Exception $e) {//trap
     echo $e->getMessage();
@@ -103,6 +104,8 @@ Creatig menu items for archives
 3. Carriers
 4. Private insurences
 5. Goverment Schemes
+6. Packages
+7. Reviews
 
 ================================
 */
@@ -115,11 +118,11 @@ if( !$menu_exists){
     $menu_id = wp_create_nav_menu($menu_name);
 
 	// Set up default menu items
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>  __('Home'),
-        'menu-item-classes' => 'home',
-        'menu-item-url' => home_url( '/' ),
-        'menu-item-status' => 'publish'));
+    // wp_update_nav_menu_item($menu_id, 0, array(
+    //     'menu-item-title' =>  __('Home'),
+    //     'menu-item-classes' => 'home',
+    //     'menu-item-url' => home_url( '/' ),
+    //     'menu-item-status' => 'publish'));
 
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Facilities'),
@@ -149,6 +152,20 @@ if( !$menu_exists){
             'menu-item-title' =>  __('Schemes'),
              'menu-item-object' => 'archive',
             'menu-item-url' => home_url( '/?post_type=schemes' ),
+            'menu-item-status' => 'publish'));
+
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Packages'),
+             'menu-item-object' => 'archive',
+            'menu-item-url' => home_url( '/?post_type=packages' ),
+            'menu-item-status' => 'publish'));
+
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Reviews'),
+             'menu-item-object' => 'archive',
+            'menu-item-url' => home_url( '/?post_type=reviews' ),
             'menu-item-status' => 'publish'));
 }
 

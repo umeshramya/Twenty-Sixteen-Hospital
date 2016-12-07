@@ -117,8 +117,8 @@ function hospital_department_custom_post_type (){
  		"rewrite" => array( "slug" => "departments", "with_front" => true ),
  		"query_var" => true,
     "menu_icon" =>'dashicons-palmtree',
-
- 		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+ 		"supports" => array( "title", "editor", "thumbnail", "excerpt" ),
+  'taxonomies' => array('post_tag'));
    	register_post_type( "departments", $args );
 }
 
@@ -181,7 +181,8 @@ Facilities custom post type
    		"query_var" => true,
       "menu_icon" =>'dashicons-palmtree',
 
-   		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+   		"supports" => array( "title", "editor", "thumbnail", "excerpt" ),
+    'taxonomies' => array('post_tag'));
      	register_post_type( "facilities", $args );
   }
   // ============insert post facilities atomatically===============
@@ -245,8 +246,8 @@ Facilities custom post type
      		"rewrite" => array( "slug" => "schemes", "with_front" => true ),
      		"query_var" => true,
         "menu_icon" =>'dashicons-palmtree',
-
-     		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+     		"supports" => array( "title", "editor", "thumbnail", "excerpt" ),
+      'taxonomies' => array('post_tag'));
        	register_post_type( "schemes", $args );
     }
     // ============insert post goverment_schemes atomatically===============
@@ -311,8 +312,8 @@ Facilities custom post type
           "rewrite" => array( "slug" => "insurences", "with_front" => true ),
           "query_var" => true,
           "menu_icon" =>'dashicons-palmtree',
-
-          "supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+          "supports" => array( "title", "editor", "thumbnail", "excerpt" ),
+        'taxonomies' => array('post_tag'));
           register_post_type( "insurences", $args );
       }
       // ============insert post private_insurence atomatically===============
@@ -372,7 +373,8 @@ Facilities custom post type
   		"rewrite" => array( "slug" => "carriers", "with_front" => true ),
   		"query_var" => true,
      "menu_icon" =>'dashicons-palmtree',
-  		"supports" => array( "title" ));
+  		"supports" => array( "title", 'thumbnail' ),
+    'taxonomies' => array('post_tag'));
     	register_post_type( "carriers", $args );
 
 
@@ -585,6 +587,87 @@ add_action( 'save_post', 'hospital_save_job_description');
         // $meta_value = $_POST['close_applications'] ? 1 : 0;
         // update_post_meta( $post_id, 'close_applications', $meta_value );
         // }
+
+
+ }
+
+
+ /*
+ ============================
+Packages custom post type
+ ============================
+ */
+
+ add_action( 'init', 'hospital_packages_custom_post_type');
+ function hospital_packages_custom_post_type(){
+   $labels = array(
+      "singular_name" => __( 'Package' ),
+      "menu_name" => __( 'Package' ),
+      "archives" => __( 'true' ),
+      );
+
+    $args = array(
+      "label" => __( 'Packages' ),
+      "labels" => $labels,
+      "description" => "These posts for adding Carriers inside the hospital",
+      "public" => true,
+      "publicly_queryable" => true,
+      "show_ui" => true,
+      "show_in_rest" => false,
+      "rest_base" => "",
+      "has_archive" => true,
+      "show_in_menu" => true,
+          "exclude_from_search" => false,
+      "capability_type" => "post",
+      "map_meta_cap" => true,
+      "hierarchical" => false,
+      "rewrite" => array( "slug" => "packages", "with_front" => true ),
+      "query_var" => true,
+     "menu_icon" =>'dashicons-palmtree',
+      "supports" => array( "title", 'editor', 'thumbnail' ),
+    'taxonomies' => array('post_tag'));
+      register_post_type( "packages", $args );
+
+
+ }
+
+
+
+ /*
+ ============================
+ Reviews custom post type
+ ============================
+ */
+
+ add_action( 'init', 'hospital_reviews_custom_post_type');
+ function hospital_reviews_custom_post_type(){
+   $labels = array(
+      "singular_name" => __( 'Reviews' ),
+      "menu_name" => __( 'Review' ),
+      "archives" => __( 'true' ),
+      );
+
+    $args = array(
+      "label" => __( 'Reviews' ),
+      "labels" => $labels,
+      "description" => "These posts for adding Carriers inside the hospital",
+      "public" => true,
+      "publicly_queryable" => true,
+      "show_ui" => true,
+      "show_in_rest" => false,
+      "rest_base" => "",
+      "has_archive" => true,
+      "show_in_menu" => true,
+          "exclude_from_search" => false,
+      "capability_type" => "post",
+      "map_meta_cap" => true,
+      "hierarchical" => false,
+      "rewrite" => array( "slug" => "Reviews", "with_front" => true ),
+      "query_var" => true,
+     "menu_icon" =>'dashicons-palmtree',
+      "supports" => array( "title", 'editor', 'thumbnail' ),
+    'taxonomies' => array('post_tag'));
+      register_post_type( "Reviews", $args );
 
 
  }

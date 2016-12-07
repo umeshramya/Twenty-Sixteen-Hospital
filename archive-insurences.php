@@ -1,37 +1,24 @@
 <?php
 /*
-this display archives of single authore along with profile and contct form
-
+This template is for displaying archives of departments like cardiology, surgery etc
 */
  ?>
+
+
 <?php get_header( ); ?>
-
 <header>
+	<div class="title-hospital-wraper"><h1>Private Insurences</h1> </div>
 
-<?php
-$user_id='';
-if(isset( $_GET['author_ID'])){
-  $user_id = esc_attr( $_GET['author_ID']);
-}
-
- ?>
-
-<div class="title-hospital-wraper"><h1><?php echo esc_attr(get_the_author_meta( 'display_name', $user_id));  ?></h1> </div>
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">
 			<div class="archive-posts-wraper-hospital">
-        <!--  get the authorn proile  single author -->
-        	<?php get_template_part( '/template-parts/author', 'profile' ); ?>
-
-			<div class="archive-posts-wraper-hospital">
-
 		<?php if(have_posts()):	?>
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
 
-		<?php 	while ( have_posts()) : the_post();?>
+		<?php 	while ( have_posts() ) : the_post();?>
 
-				<?php get_template_part( '/template-parts/author', 'archive' ); ?>
+			<?php get_template_part( '/template-parts/content', 'custom-archive' ); ?>
 
 		<?php endwhile  ?>
 

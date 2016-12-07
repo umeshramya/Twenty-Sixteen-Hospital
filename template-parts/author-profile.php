@@ -6,14 +6,17 @@ This themplate part is for displaying author profile and also contact form if ac
 
  ?>
 
-
-
-
-
 <div style="clear: both;"></div><!-- dummy div for clear floats-->
   <div class="hospital-author-meta">
-    <?php $user_id = esc_attr( $_GET['author']); ?>
-    <?php echo get_avatar( $user_id , 200 ); ?>
+    <?php
+
+    $user_id='';
+    if(isset( $_GET['author_ID'])){
+      $user_id = esc_attr( $_GET['author_ID']);
+    }
+
+   ?>
+    <?php echo get_avatar( esc_attr( get_the_author_meta( 'ID', $user_id)) , 200 ); ?>
     <br>
     <?php echo esc_attr( get_the_author_meta( 'qualification', $user_id) ).'<br>'; ?>
     <?php echo esc_attr( get_the_author_meta( 'user_department', $user_id)) .'<br>'; ?>

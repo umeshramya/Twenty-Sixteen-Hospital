@@ -80,14 +80,13 @@ $return_string = '<div class="archive-post-hospital author-links">';
 // $_SESSION['author_ID']= $author->ID;
 
 $link = get_author_posts_url($author->ID);
-$return_string = $return_string .  '<div class="author_ID">'.
-          '<a href="'. $link .'">'.
+$return_string = $return_string .
+          '<a href="'. add_query_arg('author_ID' , $author->ID , $link ).'">'.// add_query_arg function adds argument end of permlink to be used as $_GET on author.php
             get_avatar( $author->ID, 160 ) .
         '<h2>'. $author->display_name . '</h2>' .
                 $author->qualification . '</br>' .
                 $author->user_department . '</br>' .
-                '</a>'.
-              '</div>';
+                '</a>';
 
     $return_string = $return_string .  '</div>';
 
@@ -102,6 +101,8 @@ Creatig menu items for archives
 1. Departements
 2. facilities
 3. Carriers
+4. Private insurences
+5. Goverment Schemes
 
 ================================
 */
@@ -136,6 +137,18 @@ if( !$menu_exists){
             'menu-item-title' =>  __('Carriers'),
              'menu-item-object' => 'archive',
             'menu-item-url' => home_url( '/?post_type=carriers' ),
+            'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Insurences'),
+             'menu-item-object' => 'archive',
+            'menu-item-url' => home_url( '/?post_type=insurences' ),
+            'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Schemes'),
+             'menu-item-object' => 'archive',
+            'menu-item-url' => home_url( '/?post_type=schemes' ),
             'menu-item-status' => 'publish'));
 }
 

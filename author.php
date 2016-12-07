@@ -8,7 +8,13 @@ this display archives of single authore along with profile and contct form
 
 <header>
 
-<?php $user_id = $_GET['author']; ?>
+<?php
+$user_id='';
+if(isset( $_GET['author_ID'])){
+  $user_id = esc_attr( $_GET['author_ID']);
+}
+
+ ?>
 
 <div class="title-hospital-wraper"><h1><?php echo esc_attr(get_the_author_meta( 'display_name', $user_id));  ?></h1> </div>
 </header>
@@ -19,7 +25,6 @@ this display archives of single authore along with profile and contct form
         	<?php get_template_part( '/template-parts/author', 'profile' ); ?>
 
 			<div class="archive-posts-wraper-hospital">
-
 
 		<?php if(have_posts()):	?>
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->

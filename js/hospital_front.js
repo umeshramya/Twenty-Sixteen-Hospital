@@ -30,6 +30,4 @@ jQuery(document).ready(function($){
     });
 });
 
-// write code for jquery class handler event
-
 })

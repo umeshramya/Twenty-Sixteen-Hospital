@@ -5,6 +5,9 @@
 CUSTOM POST TYPE
 ======================================
 */
+ //this icon is used evry tyope of hospital custom post at meny admin
+
+
 $contact= get_option( 'activate_contact' );
 if(@$contact == 1){
  add_action( 'init', 'hospital_contact_custom_post_type');
@@ -16,6 +19,8 @@ if(@$contact == 1){
 //==========contact form CPT =============
 
 function hospital_contact_custom_post_type(){
+
+
   $label  = array(
     'name'          =>'Messages',
     'singular_name' =>'Message',
@@ -29,7 +34,7 @@ function hospital_contact_custom_post_type(){
      'show_in_menu'     =>true,
      'capability_type'  =>'post',
      'position'         =>26,
-     'menu_icon'        =>'dashicons-email-alt',
+     'menu_icon'        => 'dashicons-palmtree' ,
      'hierarchical'     =>false,
      'supports'         =>array('title', 'editor', 'author')
     );
@@ -111,7 +116,7 @@ function hospital_department_custom_post_type (){
  		"hierarchical" => false,
  		"rewrite" => array( "slug" => "departments", "with_front" => true ),
  		"query_var" => true,
-    "menu_icon" =>'dashicons-building',
+    "menu_icon" =>'dashicons-palmtree',
 
  		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
    	register_post_type( "departments", $args );
@@ -144,61 +149,196 @@ Facilities custom post type
 ============================
 */
 
-add_action( 'init', 'hospital_facility_custom_post_type');
-function hospital_facility_custom_post_type (){
-  $labels = array(
- 		"singular_name" => __( 'Facility' ),
- 		"menu_name" => __( 'Facility' ),
- 		"archives" => __( 'true' ),
- 		);
+  add_action( 'init', 'hospital_facility_custom_post_type');
+  function hospital_facility_custom_post_type (){
+    $labels = array(
+   		"singular_name" => __( 'Facility' ),
+   		"menu_name" => __( 'Facility' ),
+   		"archives" => __( 'true' ),
+   		);
 
- 	$args = array(
- 		"label" => __( 'Facilities' ),
- 		"labels" => $labels,
- 		"description" => "These posts for adding facilties inside the hospital
-                      These are auto generated from hospital setting options
-                      To order them change the date
-                      To delete the post empty it from thrash also or else it wont function",
- 		"public" => true,
- 		"publicly_queryable" => true,
- 		"show_ui" => true,
- 		"show_in_rest" => false,
- 		"rest_base" => "",
- 		"has_archive" => true,
- 		"show_in_menu" => true,
- 				"exclude_from_search" => false,
- 		"capability_type" => "post",
-    "capabilities" => array(
-    "create_posts" => "do_not_allow", ),// false < WP 4.5, credit @Ewout
- 		"map_meta_cap" => true,
- 		"hierarchical" => false,
- 		"rewrite" => array( "slug" => "facilities", "with_front" => true ),
- 		"query_var" => true,
-    "menu_icon" =>'dashicons-palmtree',
+   	$args = array(
+   		"label" => __( 'Facilities' ),
+   		"labels" => $labels,
+   		"description" => "These posts for adding facilties inside the hospital
+                        These are auto generated from hospital setting options
+                        To order them change the date
+                        To delete the post empty it from thrash also or else it wont function",
+   		"public" => true,
+   		"publicly_queryable" => true,
+   		"show_ui" => true,
+   		"show_in_rest" => false,
+   		"rest_base" => "",
+   		"has_archive" => true,
+   		"show_in_menu" => true,
+   				"exclude_from_search" => false,
+   		"capability_type" => "post",
+      "capabilities" => array(
+      "create_posts" => "do_not_allow", ),// false < WP 4.5, credit @Ewout
+   		"map_meta_cap" => true,
+   		"hierarchical" => false,
+   		"rewrite" => array( "slug" => "facilities", "with_front" => true ),
+   		"query_var" => true,
+      "menu_icon" =>'dashicons-palmtree',
 
- 		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
-   	register_post_type( "facilities", $args );
-}
-// ============insert post facilities atomatically===============
-function  hospital_insert_facility_posts(){
-  $titles= array_reverse(explode(',' , get_option( 'facilities')));//this array reverse to make first entey to make it latest post
-    foreach ($titles as $title ) {
-    $title=trim($title);
-  $post_object= get_page_by_title( $title,  'OBJECT',  'facilities');
-if (null==$post_object){
-        wp_insert_post( array(
-          'post_name'   =>  $title,
-          'post_type'   => 'facilities',
-          'post_title' => $title,
-          'post_status' => 'publish'
-        ));
-      }else{
+   		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+     	register_post_type( "facilities", $args );
+  }
+  // ============insert post facilities atomatically===============
+  function  hospital_insert_facility_posts(){
+    $titles= array_reverse(explode(',' , get_option( 'facilities')));//this array reverse to make first entey to make it latest post
+      foreach ($titles as $title ) {
+      $title=trim($title);
+    $post_object= get_page_by_title( $title,  'OBJECT',  'facilities');
+  if (null==$post_object){
+          wp_insert_post( array(
+            'post_name'   =>  $title,
+            'post_type'   => 'facilities',
+            'post_title' => $title,
+            'post_status' => 'publish'
+          ));
+        }else{
 
-        }
-   }
-}
+          }
+     }
+  }
 
-add_action('init', 'hospital_insert_facility_posts');
+  add_action('init', 'hospital_insert_facility_posts');
+
+
+
+
+  /*
+  ============================
+  Goverment Schemes custom post type
+  ============================
+  */
+
+    add_action( 'init', 'hospital_goverment_schemes_custom_post_type');
+    function hospital_goverment_schemes_custom_post_type (){
+      $labels = array(
+     		"singular_name" => __( 'Schemes' ),
+     		"menu_name" => __( 'Schemes' ),
+     		"archives" => __( 'true' ),
+     		);
+
+     	$args = array(
+     		"label" => __( 'Schemes' ),
+     		"labels" => $labels,
+     		"description" => "These posts for adding Schemes inside the hospital
+                          These are auto generated from hospital setting options
+                          To order them change the date
+                          To delete the post empty it from thrash also or else it wont function",
+     		"public" => true,
+     		"publicly_queryable" => true,
+     		"show_ui" => true,
+     		"show_in_rest" => false,
+     		"rest_base" => "",
+     		"has_archive" => true,
+     		"show_in_menu" => true,
+     				"exclude_from_search" => false,
+     		"capability_type" => "post",
+        "capabilities" => array(
+        "create_posts" => "do_not_allow", ),// false < WP 4.5, credit @Ewout
+     		"map_meta_cap" => true,
+     		"hierarchical" => false,
+     		"rewrite" => array( "slug" => "schemes", "with_front" => true ),
+     		"query_var" => true,
+        "menu_icon" =>'dashicons-palmtree',
+
+     		"supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+       	register_post_type( "schemes", $args );
+    }
+    // ============insert post goverment_schemes atomatically===============
+    function  hospital_insert_goverment_scheems_posts(){
+      $titles= array_reverse(explode(',' , get_option( 'goverment_schemes')));//this array reverse to make first entey to make it latest post
+        foreach ($titles as $title ) {
+        $title=trim($title);
+      $post_object= get_page_by_title( $title,  'OBJECT',  'schemes');
+    if (null==$post_object){
+            wp_insert_post( array(
+              'post_name'   =>  $title,
+              'post_type'   => 'schemes',
+              'post_title' => $title,
+              'post_status' => 'publish'
+            ));
+          }else{
+
+            }
+       }
+    }
+
+    add_action('init', 'hospital_insert_goverment_scheems_posts');
+
+
+
+
+
+    /*
+    ============================
+    Private Insurence custom post type
+    ============================
+    */
+
+      add_action( 'init', 'hospital_private_insurence_custom_post_type');
+      function hospital_private_insurence_custom_post_type (){
+        $labels = array(
+          "singular_name" => __( 'Insurence' ),
+          "menu_name" => __( 'Insurences' ),
+          "archives" => __( 'true' ),
+          );
+
+        $args = array(
+          "label" => __( 'Insurences' ),
+          "labels" => $labels,
+          "description" => "These posts for adding Insurences inside the hospital
+                            These are auto generated from hospital setting options
+                            To order them change the date
+                            To delete the post empty it from thrash also or else it wont function",
+          "public" => true,
+          "publicly_queryable" => true,
+          "show_ui" => true,
+          "show_in_rest" => false,
+          "rest_base" => "",
+          "has_archive" => true,
+          "show_in_menu" => true,
+              "exclude_from_search" => false,
+          "capability_type" => "post",
+          "capabilities" => array(
+          "create_posts" => "do_not_allow", ),// false < WP 4.5, credit @Ewout
+          "map_meta_cap" => true,
+          "hierarchical" => false,
+          "rewrite" => array( "slug" => "insurences", "with_front" => true ),
+          "query_var" => true,
+          "menu_icon" =>'dashicons-palmtree',
+
+          "supports" => array( "title", "editor", "thumbnail", "excerpt" ));
+          register_post_type( "insurences", $args );
+      }
+      // ============insert post private_insurence atomatically===============
+      function  hospital_insert_private_insurence_posts(){
+        $titles= array_reverse(explode(',' , get_option( 'private_insurence')));//this array reverse to make first entey to make it latest post
+          foreach ($titles as $title ) {
+          $title=trim($title);
+        $post_object= get_page_by_title( $title,  'OBJECT',  'insurences');
+      if (null==$post_object){
+              wp_insert_post( array(
+                'post_name'   =>  $title,
+                'post_type'   => 'insurences',
+                'post_title' => $title,
+                'post_status' => 'publish'
+              ));
+            }else{
+
+              }
+         }
+      }
+
+      add_action('init', 'hospital_insert_private_insurence_posts');
+
+
+
+
 
  /*
  ============================
@@ -231,7 +371,7 @@ add_action('init', 'hospital_insert_facility_posts');
   		"hierarchical" => false,
   		"rewrite" => array( "slug" => "carriers", "with_front" => true ),
   		"query_var" => true,
-     "menu_icon" =>'',
+     "menu_icon" =>'dashicons-palmtree',
   		"supports" => array( "title" ));
     	register_post_type( "carriers", $args );
 

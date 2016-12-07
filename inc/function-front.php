@@ -54,11 +54,11 @@ function hospital_send_email_author_callback(){
     }
 
 
-       $headers = "From:'.$from_email .' \r\n";
-       $headers .="Cc:'. get_option('hospital_email') .' \r\n";
+       $headers[]= "Reply-To:<". $name_email ."> <". $from_email . ">";
+       $headers[] .="Cc:<". get_option('hospital_email') . ">";
 
 
-        wp_mail( $to_email, $subject_email, $message_email,$from_email, $headers);
+        wp_mail( $to_email, $subject_email , $message_email, $headers);
       echo "Submitted email";
 
   } catch (Exception $e) {//trap

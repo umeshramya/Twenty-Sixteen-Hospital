@@ -54,6 +54,12 @@ Enter hospital details.
  1. Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
  2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
 
+##4 other custom types are degined with specific purpose
+  4.1 Goverment schemes (schemes) for from public sector like BPL card holder, Yeshewini etc
+  4.2 Private Insurences (Insurances) for TPA like Vidal, mediasst etc
+  4.3 Packages for hospital Packages like master health check up, visa health checkup CABG package etc
+  4.4 Reviews patient reviews subimmted from patients(these can enbled from front by use if shortcodes see below)
+  4.5 carriers for announceing job vacancy announceing
 
 #SHORT CODES
 
@@ -64,6 +70,9 @@ Please note these are important parts of this theme will go long way desgning we
 hierarchy :- this atribute is to be taken from user_faculty_hierarchy(user profile page) or from faculty_hierarchy ( hospital menu page).
 this short code will detect departement from titile.
 to be used in custom post type Departements.
+
+##[faculty_by_department]
+this short code has to used inside departement posttype with titile set departement set in hospital setting page. its display the departement using title
 
 ##[faculty_get_auhtor_by email='']
 This short code display auhtor archive profile by email as argument

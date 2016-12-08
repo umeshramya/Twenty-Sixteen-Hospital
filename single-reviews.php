@@ -12,6 +12,7 @@ get_header(); ?>
 <!-- <div id="primary" class="content-area-without-sidebar-hospital"> -->
 <div id="primary" class="content-area">
 		<main role="main">
+
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -46,7 +47,8 @@ get_header(); ?>
 		?>
 
 	</main><!-- .site-main -->
-	<?php get_sidebar( 'content-bottom' ); ?>
+		<?php get_sidebar( 'content-bottom' ); ?>
+
 </div><!-- .content-area -hospital-->
 <?php get_sidebar(); ?>
 

@@ -50,7 +50,7 @@ Special fields in hospital page in admin area
 
 
 
-How to activate author or user profile page with contact form?
+##How to activate author or user profile page with contact form?
  1. Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
  2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
 
@@ -60,7 +60,10 @@ How to activate author or user profile page with contact form?
 Please note these are important parts of this theme will go long way desgning website for hospital
 
 
-[faculty_by_hierarchy_department hierarchy = ""]
+##[faculty_by_hierarchy_department hierarchy = ""]
 hierarchy :- this atribute is to be taken from user_faculty_hierarchy(user profile page) or from faculty_hierarchy ( hospital menu page).
 this short code will detect departement from titile.
 to be used in custom post type Departements.
+
+##[faculty_get_auhtor_by email='']
+This short code display auhtor archive profile by email as argument

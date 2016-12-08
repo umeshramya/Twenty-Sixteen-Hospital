@@ -54,12 +54,12 @@ Enter hospital details.
  1. Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
  2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
 
-##4 other custom types are degined with specific purpose
-  4.1 Goverment schemes (schemes) for from public sector like BPL card holder, Yeshewini etc
-  4.2 Private Insurences (Insurances) for TPA like Vidal, mediasst etc
-  4.3 Packages for hospital Packages like master health check up, visa health checkup CABG package etc
-  4.4 Reviews patient reviews subimmted from patients(these can enbled from front by use if shortcodes see below)
-  4.5 carriers for announceing job vacancy announceing
+## other custom types are degined with specific purpose
+  1. Goverment schemes (schemes) for from public sector like BPL card holder, Yeshewini etc
+  4. Private Insurences (Insurances) for TPA like Vidal, mediasst etc
+  4. Packages for hospital Packages like master health check up, visa health checkup CABG package etc
+  4. Reviews patient reviews subimmted from patients(these can enbled from front by use if shortcodes see below)
+  4. carriers for announceing job vacancy announceing
 
 #SHORT CODES
 

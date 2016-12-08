@@ -86,6 +86,27 @@ return $return_string;
 } );
 
 
+//shortcode [faculty_get_auhtor_by email='']
+add_shortcode( 'faculty_get_auhtor_by', function($attr){
+$user_email=$attr['email'];
+$user_query = new WP_User_Query(array( 'search' => $user_email ));
+$author = $user_query->results;
+
+$return_string='';
+
+
+$return_string = $return_string .'<div style="clear: both;"></div>';
+foreach ( $user_query->results as $author ) {
+
+  $return_string =$return_string . faculty_return_string($author);
+
+}//end of inner foreach loop
+$return_string = $return_string .'<div style="clear: both;"></div>';
+
+
+
+return $return_string;
+});
 
 
 

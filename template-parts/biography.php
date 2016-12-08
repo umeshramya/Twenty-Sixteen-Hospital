@@ -7,31 +7,28 @@
  * @since Twenty Sixteen 1.0
  */
 ?>
-
-<div class="author-info">
-	<div class="author-avatar">
+<div style="clear: both;"></div><!-- dummy div for clear floats-->
+<!-- <div class="author-info"> -->
+<div class="author-wraper" style="width:300">
+	<!-- <div class="author-avatar"> -->
+		<div class="" style="width:150; float:left;">
 		<?php
-		/**
-		 * Filter the Twenty Sixteen author bio avatar size.
-		 *
-		 * @since Twenty Sixteen 1.0
-		 *
-		 * @param int $size The avatar height and width size in pixels.
-		 */
-		$author_bio_avatar_size = apply_filters( 'twentysixteen_author_bio_avatar_size', 42 );
-
-		echo get_avatar( get_the_author_meta( 'user_email' ), $author_bio_avatar_size );
+		echo get_avatar( get_the_author_meta( 'user_email'), 120);
 		?>
 	</div><!-- .author-avatar -->
 
-	<div class="author-description">
-		<h2 class="author-title"><span class="author-heading"><?php _e( 'Author:', 'twentysixteen' ); ?></span> <?php echo get_the_author(); ?></h2>
+	<div class="author_details" style="width:150; float:left; padding-left:15px">
+		<h2 class="author-title"><span class="author-heading">
+			<?php echo 'Author : '. esc_attr( get_the_author_meta( 'display_name' )).'<br>'; ?>
+			<?php echo '<small> &nbsp &nbsp &nbsp'.esc_attr( get_the_author_meta( 'qualification' )).'</small><br>'; ?>
+	    <?php echo esc_attr( get_the_author_meta( 'user_department')) .'<br>'; ?>
 
 		<p class="author-bio">
-			<?php the_author_meta( 'description' ); ?>
+
 			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
 				<?php printf( __( 'Contact  %s', 'twentysixteen' ), get_the_author() ); ?>
 			</a>
 		</p><!-- .author-bio -->
-	</div><!-- .author-description -->
-</div><!-- .author-info -->
+		<div style="clear: both;"></div><!-- dummy div for clear floats-->
+	</div><!-- .author_wraper -->
+</div><!-- .author-wraper -->

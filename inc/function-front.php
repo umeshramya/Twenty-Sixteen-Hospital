@@ -64,6 +64,7 @@ function hospital_send_email_author_callback(){
 
   } catch (Exception $e) {//trap
     echo $e->getMessage();
+    die();
   }// end try catch segement
 
 }

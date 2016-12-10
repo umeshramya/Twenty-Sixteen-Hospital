@@ -108,7 +108,32 @@ $return_string = $return_string .'<div style="clear: both;"></div>';
 return $return_string;
 });
 
+/*
+=======================================
+shortr code for review submission
+=======================================
+*/
+ add_shortcode( 'review_submit', function(){
+   ?>
+<form class="" action="" method="post">
+<label for="hospital_review_title">Title<br></label>
+<input type="text" name='hospital_review_title' id='hospital_review_title' placeholder="Please enter title of your review" required="required"/>
+
+<label for="hospital_reviewer_email">Your name<br></label>
+<input type="email" name='hospital_reviewer_name' id='hospital_reviewer_name' placeholder="Please enter your name" required="required"/>
+
+<label for="hospital_reviewer_email">Your email<br.</label>
+<input type="text" name='hospital_reviewer_email' id='hospital_reviewer_email' placeholder="Please enter your name" required="required" />
+
+<label for="hospital_review_content">Reivew<br></label>
+<textarea name="hospital_review_content" id="hospital_review_content" placeholder="Please enter your review " required="required"></textarea>
 
 
+<label for="btn_submit_review"><br></label>
+<input type="button" name="btn_submit_review" id="btn_submit_review" value="submit">
+</form>
+
+   <?php
+ } );
 
  ?>

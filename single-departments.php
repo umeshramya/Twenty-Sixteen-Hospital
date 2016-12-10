@@ -46,6 +46,7 @@ get_header(); ?>
 		?>
 </div>
 	</main><!-- .site-main -->
+	<?php get_sidebar( 'content-bottom' ); ?>
 
 </div><!-- .content-area -hospital-->
 

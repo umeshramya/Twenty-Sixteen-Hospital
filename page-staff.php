@@ -49,5 +49,6 @@ Template Name: All staff list
 		</div><!--.hospital-old-new-posts -->
 
 	 </main>
+   <?php get_sidebar( 'content-bottom' ); ?>
  </div><!--.content area-->
 <?php get_footer( ); ?>

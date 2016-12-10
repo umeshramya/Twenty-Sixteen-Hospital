@@ -45,6 +45,7 @@ get_header(); ?>
 		endwhile;
 		?>
 	</main><!-- .site-main -->
+	<?php get_sidebar( 'content-bottom' ); ?>
 
 </div><!-- .content-area -hospital-->
 <?php get_sidebar(); ?>

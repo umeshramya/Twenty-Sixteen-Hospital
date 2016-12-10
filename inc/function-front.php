@@ -6,13 +6,13 @@ This file for functions front end
 add_filter( 'pre_get_posts', 'hospital_archive_post_per_page' );
 
 function hospital_archive_post_per_page($query){
-  if( $query->is_main_query() && $query->is_post_type_archive('departments') ) {
-		$query->set( 'posts_per_page', 20 );
-	}
+    if( $query->is_main_query() && $query->is_post_type_archive('departments') ) {
+  		$query->set( 'posts_per_page', 20 );
+  	}
 
-  if( $query->is_main_query() && $query->is_post_type_archive('facilities') ) {
-    $query->set( 'posts_per_page', 20 );
-  }
+    if( $query->is_main_query() && $query->is_post_type_archive('facilities') ) {
+      $query->set( 'posts_per_page', 20 );
+    }
 }
 
 /*
@@ -55,7 +55,7 @@ function hospital_send_email_author_callback(){
 
 
        $headers[]= "Reply-To:<". $name_email ."> <". $from_email . ">";
-       $headers[] .="Cc:<". get_option('hospital_email') . ">";
+      //  $headers[] .="Cc:<". get_option('hospital_email') . ">";
 
 
         wp_mail( $to_email, $subject_email , $message_email, $headers);
@@ -68,7 +68,46 @@ function hospital_send_email_author_callback(){
   }// end try catch segement
 
 }
+/*
+==========================================
+ajax functio of review submit
+==========================================
+*/
+add_action( 'wp_ajax_nopriv_hospital_submit_review', 'hospital_submit_review_callback');
+add_action( 'wp_ajax_hospital_submit_review', 'hospital_submit_review_callback');
 
+function hospital_submit_review_callback(){
+$title=esc_attr( $_POST['title']);
+$name =esc_atr($_POST['name']);
+$email=validate_email($_POST['email']);
+$content =esc_attr($_POST['content']);
+
+try {
+  $postarr = array(
+    'post_author' => 1,
+    'post_title'  =>$title,
+    'post_content'  => $content,
+    'post_type'   =>'reviews'
+    //still write code for inserting into custom fileds 1.name 2. reviewers name 3. reviewer email
+
+   );
+
+wp_insert_post( $postarr );
+echo "submitted your valuble review";
+  die();
+// send email copy to admin of site to check
+  $to =get_option('admin_email' );
+  $subject = 'Review ' . get_option('blogname' ). ' ' . $title ;
+  $headers[]= "Reply-To:<". $name ."> <". $email . ">";
+  wp_mail( $to, $subject, $content, $headers );
+
+} catch (Exception $e) {
+  echo $e->getMessage();
+  die();
+
+}
+
+}
 
 /*
 ==================================================================

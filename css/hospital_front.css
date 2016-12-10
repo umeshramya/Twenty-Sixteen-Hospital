@@ -142,20 +142,23 @@ color: #007acc;
   width:100%;
 }
 
-
+/* this is for autho .php*/
 .hospital-author-meta , .hospital-contact-form {
   float:left;
   margin:auto;
   min-width: 290px;
 
 }
+
+
+
+
 /*
 ============================================================
 Below styles are meant overide twentysixteen stylles
 These may be required change when parent theme is changed.
 ============================================================
 */
-
 .site .avatar {
     border-radius: 2%;
 }

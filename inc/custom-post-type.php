@@ -383,7 +383,8 @@ Facilities custom post type
 add_action( 'add_meta_boxes',function(){
 add_meta_box( 'job_description', 'Job Description',
     function($post){
-      wp_nonce_field( 'hospital_save_job_description',  "hospital_job_description_nounce" );
+    wp_nonce_field(basename(__FILE__),'hospital_job_description_nounce');
+
 
     $job_description = get_post_meta( $post->ID );
 
@@ -406,23 +407,12 @@ add_meta_box( 'job_description', 'Job Description',
     }
 
 
-    // if(!empty($job_description['opening_date'])){
-    //   $opening_date =$job_description['opening_date'][0];
-    // }else{
-    //   $opening_date='';
-    // }
-
     if(!empty($job_description['closing_date'])){
       $closing_date =$job_description['closing_date'][0];
     }else{
       $closing_date='';
     }
 
-    // if(!empty($job_description['interview_date'])){
-    //   $interview_date =$job_description['interview_date'][0];
-    // }else{
-    //   $interview_date='';
-    // }
 
 
     if(!empty($job_description['salary_range'])){
@@ -436,12 +426,6 @@ add_meta_box( 'job_description', 'Job Description',
     }else{
       $email_copy='';
     }
-
-    // if(!empty($job_description['close_applications'][0])){
-    // $option_checked  =$job_description['close_applications'][0];
-    // $close_applications = (@$option_checked==1 ? 'checked':'');
-    // }
-
 
 
 
@@ -460,20 +444,11 @@ add_meta_box( 'job_description', 'Job Description',
            <input type="text" name="vacancies" id="vacancies" style="width:100%" value="' . $vacancies .'">
            </div>';
 
-      // echo '<div class="element_wrap">
-      //       <label for="opening_date">Opening Date<br></label>
-      //        <input type="date" name="opening_date" id="opening_date" value="' . $opening_date .'">
-      //        </div>';
-
        echo '<div class="element_wrap">
             <label for="closing_date">Closing Date <strong>(Not visible to public after set date)</strong><br></label>
             <input type="date" name="closing_date" id="closing_date"  value="'.$closing_date.'">
             </div>';
 
-      // echo '<div class="element_wrap">
-      //       <label for="interview_date">Interview Date <br></label>
-      //       <input type="date" name="interview_date" id="interview_date" value="' . $interview_date .'">
-      //       </div>';
 
       echo '<div class="element_wrap">
             <label for="salary_range">Salary Range<br></label>
@@ -493,20 +468,6 @@ add_meta_box( 'job_description', 'Job Description',
               wp_editor( $content, $editor_id, $settings );
 
 
-            //   if (!empty($close_applications) && (!$close_applications == 0)){
-            //   echo '<br><div class="element_wrap">
-            //          <label for="close_applications">Close Applications</label>
-            //          <input type="checkbox"  name="close_applications" id="close_applications" value="1" '. $close_applications .' />
-            //          </div> <br>';
-            //        }else{
-            //  echo '<br><div class="element_wrap">
-            //         <label for="close_applications">Close Applications</label>
-            //         <input type="checkbox"  name="close_applications"  value="1"/>
-            //         </div> <br>';
-            //       }
-
-
-
 },
       'carriers','normal', 'high');
 
@@ -515,6 +476,14 @@ add_meta_box( 'job_description', 'Job Description',
 
 add_action( 'save_post', 'hospital_save_job_description');
  function hospital_save_job_description($post_id){
+
+   if((!isset($_POST['hospital_job_description_nounce']))
+   ||
+   (!wp_verify_nonce($_POST['hospital_job_description_nounce'], basename( __FILE__ )))
+  ){
+     return;
+   }
+
 
    if (isset($_POST['job_title'])){
      $meta_value = sanitize_text_field($_POST['job_title']);
@@ -540,23 +509,10 @@ add_action( 'save_post', 'hospital_save_job_description');
       }
 
 
-
-
-
-    // if (isset($_POST['opening_date'])){
-    //   $meta_value =  ($_POST['opening_date']);
-    //     update_post_meta( $post_id, 'opening_date', $meta_value );
-    //  }
-
      if (isset($_POST['closing_date'])){
        $meta_value =  ($_POST['closing_date']);
          update_post_meta( $post_id, 'closing_date', $meta_value );
       }
-      // if (isset($_POST['interview_date'])){
-      //   $meta_value =  ($_POST['interview_date']);
-      //     update_post_meta( $post_id, 'interview_date', $meta_value );
-      //  }
-
 
 
 
@@ -583,10 +539,6 @@ add_action( 'save_post', 'hospital_save_job_description');
 
 
 
-        // if(!empty( $_POST['close_applications'])){
-        // $meta_value = $_POST['close_applications'] ? 1 : 0;
-        // update_post_meta( $post_id, 'close_applications', $meta_value );
-        // }
 
 
  }

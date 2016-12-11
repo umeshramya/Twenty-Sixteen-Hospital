@@ -88,19 +88,23 @@ by defult this fucntion saves the review in draft from
 it needs to published to make publically visible
 
 ##[hospital_name]
-Diplays name of hospiatl
+Diplays name of hospital
 
 ##[emergency_phone]
 displays emergency phone of hospital
 
 ##[ambulance_phone]
-Displays a[hospital_email]mbulance phone
+Displays ambulance phone
 
 ##[help_desk_phone]
-Display help_desk_phone
+Displays help desk phone
 
 ##[office_phone]
-Display office_phone
+Display office phone
 
 ##[hospital_email]
-Display hospital_email
+Display hospital email
+
+
+##[hospital_phones_email]
+Displays all phones set in setting and also hospital email

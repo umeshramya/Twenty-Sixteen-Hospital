@@ -12,13 +12,14 @@ get_header(); ?>
 <!-- <div id="primary" class="content-area-without-sidebar-hospital"> -->
 <div id="primary" class="content-area">
 		<main role="main">
+			<div class="archive-posts-wraper-hospital">
 
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
 			// Include the single post content template.
-			get_template_part( 'template-parts/content', 'custom-single' );
+			get_template_part( 'template-parts/content', 'review-single' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) {
@@ -45,7 +46,7 @@ get_header(); ?>
 			// End of the loop.
 		endwhile;
 		?>
-
+</div><!--<div class="archive-posts-wraper-hospital-->
 	</main><!-- .site-main -->
 		<?php get_sidebar( 'content-bottom' ); ?>
 

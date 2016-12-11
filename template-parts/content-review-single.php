@@ -15,6 +15,16 @@
 
 	<div class="entry-content-hospital">
 		<?php
+
+
+				$review_description = get_post_meta($post->ID);
+				if(!empty($review_description['reviewer_name'][0])){
+				$reviewer_name = $review_description['reviewer_name'][0];
+				echo '<h3>'.$reviewer_name.'</h3>';
+
+				}
+
+			the_post_thumbnail('post-thumbnail');
 			the_content();
 			echo '</br>';
 			echo get_the_tag_list( '<br>Tags: ',  ', ','<br>' );

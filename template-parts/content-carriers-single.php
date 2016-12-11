@@ -13,7 +13,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="">
+	<div class="entry-content-hospital">
 		<?php
 
 echo '<div class="hospital-carrier">';
@@ -64,5 +64,6 @@ echo '<a href="mailto:'.$hospital_email.'?subject='. get_the_title()  .'">'. $em
 	edit_post_link();
 
 		?>
-			</div><!-- .entry-content -->
+	</div><!-- .entry-content-hospital -->
+
 </article><!-- #post-## -->

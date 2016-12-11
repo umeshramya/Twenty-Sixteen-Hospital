@@ -201,4 +201,36 @@ add_shortcode( 'hospital_email', function(){
   $retrun_string= get_option('hospital_email');
   return $retrun_string;
 } );
+
+//shortcode [hospital_phones_email]
+add_shortcode( 'hospital_phones_email', function(){
+  $emergency_phone =trim(get_option('emergency_phone'));
+  $ambulance_phone = trim( get_option('ambulance_phone'));
+  $help_desk_phone =trim(get_option('help_desk_phone'));
+  $office_phone = trim(get_option('office_phone'));
+  $hospital_email =trim(get_option('hospital_email'));
+
+  if($emergency_phone!=''){
+  $retrun_string = 'Emergency: '. $emergency_phone;
+  }
+
+  if ($ambulance_phone !=''){
+  $retrun_string .= ', Ambulance: '.  $ambulance_phone;
+  }
+
+  if($help_desk_phone!=''){
+  $retrun_string .= ', Help Desk: '. $help_desk_phone;
+  }
+
+  if($office_phone!=''){
+  $retrun_string .= ', Office Phone: '. $office_phone;
+  }
+
+  if($hospital_email!=''){
+  $retrun_string .= ', email: '. $hospital_email;
+  }
+  return $retrun_string;
+} );
+
+
  ?>

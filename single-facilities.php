@@ -11,6 +11,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 		<main role="main">
+			<div class="archive-posts-wraper-hospital">
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -43,7 +44,7 @@ get_header(); ?>
 			// End of the loop.
 		endwhile;
 		?>
-
+</div> <!--.archive-posts-wraper-->
 	</main><!-- .site-main -->
 		<?php get_sidebar( 'content-bottom' ); ?>
 

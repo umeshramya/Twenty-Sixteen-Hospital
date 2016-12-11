@@ -16,10 +16,10 @@
 	</header><!-- .entry-header -->
 
 	<?php
-	// twentysixteen_post_thumbnail(); 
+	// twentysixteen_post_thumbnail();
 	?>
 
-	<div class="entry-content">
+	<div class="entry-content-hospital">
 		<?php
 		the_content();
 

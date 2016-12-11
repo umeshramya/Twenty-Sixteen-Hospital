@@ -86,3 +86,21 @@ use in any page or post where your want recive reviews
 to_email argument is for send email alert like admin email or hospital email
 by defult this fucntion saves the review in draft from
 it needs to published to make publically visible
+
+##[hospital_name]
+Diplays name of hospiatl
+
+##[emergency_phone]
+displays emergency phone of hospital
+
+##[ambulance_phone]
+Displays a[hospital_email]mbulance phone
+
+##[help_desk_phone]
+Display help_desk_phone
+
+##[office_phone]
+Display office_phone
+
+##[hospital_email]
+Display hospital_email

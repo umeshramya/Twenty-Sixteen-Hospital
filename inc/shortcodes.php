@@ -164,4 +164,41 @@ $to_email = $attr['to_email'];
 <?php
 } );
 
+
+// shortcode [hospital_name]
+add_shortcode( 'hospital_name', function(){
+  $retrun_string= get_option('hospital_name');
+  return $retrun_string;
+} );
+
+// shortcode [emergency_phone]
+add_shortcode( 'emergency_phone', function(){
+  $retrun_string= get_option('emergency_phone');
+  return $retrun_string;
+} );
+
+//shortcode [ambulance_phone]
+add_shortcode( 'ambulance_phone', function(){
+  $retrun_string= get_option('ambulance_phone');
+  return $retrun_string;
+} );
+
+
+//shortcode [help_desk_phone]
+add_shortcode( 'help_desk_phone', function(){
+  $retrun_string= get_option('help_desk_phone');
+  return $retrun_string;
+} );
+
+//shortcode [office_phone]
+add_shortcode( 'office_phone', function(){
+  $retrun_string= get_option('office_phone');
+  return $retrun_string;
+} );
+
+//shortcode [hospital_email]
+add_shortcode( 'hospital_email', function(){
+  $retrun_string= get_option('hospital_email');
+  return $retrun_string;
+} );
  ?>

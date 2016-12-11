@@ -76,3 +76,13 @@ this short code has to used inside departement posttype with titile set departem
 
 ##[faculty_get_auhtor_by email='']
 This short code display auhtor archive profile by email as argument
+
+##[contact form contact_form to_email=""]
+while using this conact form in to email has be written in between "" as argument
+
+##[review_submit to_email=""]
+This shorte code is to be used for displaying form to accept reviews from patients
+use in any page or post where your want recive reviews
+to_email argument is for send email alert like admin email or hospital email
+by defult this fucntion saves the review in draft from
+it needs to published to make publically visible

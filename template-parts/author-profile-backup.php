@@ -33,14 +33,24 @@ This themplate part is for displaying author profile and also contact form if ac
   <div class="hospital-contact-form" >
     <h2> Send email to <?php echo  esc_attr(get_the_author_meta('display_name', $user_id));  ?></h2>
 
+      <form  id="author_contact_form">
+      <input type="hidden" name="to_email" id= "to_email" value="<?php echo  esc_attr(get_the_author_meta("email", $user_id)); ?>">
+      <label for="name_email"></label>Name
+      <input type="text" name="name_email" id="name_email" value="" placeholder="Enter name">
+      <label for="from_email"></label>email.
+      <input type="email" name="from_email" id="from_email" value="" placeholder="enter your email">
+      <label for="subject_email"></label>subject
+      <input type="text" name="subject_email" id="subject_email" value="" placeholder="enter your email subject">
+      <label for="message_email"></label>Message
+      <textarea name="message_email" id="message_email" rows="8" cols="80"></textarea>
 
-<?php
-// using short code for contact form
-$to_email=get_the_author_meta("email", $user_id);
-echo do_shortcode( '[contact_form to_email="'. $to_email .'"]');
- ?>
+      <input type="button"  name="btn_contact" id="btn_contact" value="Send email">
 
-<?php } ?><!-- end of if statment for activate contact form-->
+    </form>
+    <div id="email_result"></div>
+
+
+    <?php } ?><!-- end of if statment for activate contact form-->
 
 <div style="clear: both;"></div><!-- dummy div for clear floats-->
 </div>

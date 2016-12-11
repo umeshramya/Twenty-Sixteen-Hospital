@@ -16,7 +16,15 @@ jQuery(document).ready(function($){
     if(to_email==''){
         alert("To email cannot be empty");
         return;
+      }else{
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if(!filter.test(from_email)){
+          alert('Please enter valid to email address');
+          return;
+
+        }
       }
+
 
     if(name_email==''){
        alert('Name can not be empty');
@@ -29,7 +37,7 @@ jQuery(document).ready(function($){
     }else{
       var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
       if(!filter.test(from_email)){
-        alert('Please enter valid email address');
+        alert('Please enter valid from email address');
         return;
 
       }
@@ -88,6 +96,7 @@ jQuery(document).ready(function($){
       var name = $("#hospital_reviewer_name").val();
       var email = $("#hospital_reviewer_email").val();
       var content = $("#hospital_review_content").val();
+      var to_email = $("#hospital_to_email").val();
 
 
       if(title==''){
@@ -112,6 +121,18 @@ jQuery(document).ready(function($){
         }
       }
 
+      if (to_email==''){
+        alert('Your to email is required');
+        return;
+        }else{
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if(!filter.test(email)){
+          alert('Please enter valid to email address');
+          return;
+
+        }
+      }
+
       if(content==''){
         alert('your review content is required');
         return;
@@ -126,20 +147,21 @@ jQuery(document).ready(function($){
                 title :  title,
                 name : name,
                 email :  email,
-                content :  content
+                content :  content,
+                to_email: to_email
               },
         success:function(result) {
                 // This outputs the result of the ajax request
-              //  $("#hospital_review_title").attr("disabled", true);
-              //  $("#hospital_reviewer_name").attr("disabled", true);
-              //  $("#hospital_reviewer_email").attr("disabled", true);
-              //  $("#hospital_review_content").attr("disabled", true);
+               $("#hospital_review_title").attr("disabled", true);
+               $("#hospital_reviewer_name").attr("disabled", true);
+               $("#hospital_reviewer_email").attr("disabled", true);
+               $("#hospital_review_content").attr("disabled", true);
 
                 // $("#email_result").html(result);
                 alert (result);
             },
             error: function(errorThrown){
-                // $("#email_result").html(errorThrown);
+                $("#email_result").html(errorThrown);
                 alert(errorThrown);
             }
         });

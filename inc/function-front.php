@@ -77,29 +77,34 @@ add_action( 'wp_ajax_nopriv_hospital_submit_review', 'hospital_submit_review_cal
 add_action( 'wp_ajax_hospital_submit_review', 'hospital_submit_review_callback');
 
 function hospital_submit_review_callback(){
-$title=esc_attr( $_POST['title']);
-$name =esc_atr($_POST['name']);
-$email=validate_email($_POST['email']);
-$content =esc_attr($_POST['content']);
 
+
+
+$title=wp_strip_all_tags( $_POST['title']);
+$name =wp_strip_all_tags($_POST['name']);
+$email=wp_strip_all_tags($_POST['email']);
+$content =wp_strip_all_tags($_POST['content']);
+$to_email= wp_strip_all_tags($_POST['to_email'] );
 try {
   $postarr = array(
     'post_author' => 1,
     'post_title'  =>$title,
     'post_content'  => $content,
-    'post_type'   =>'reviews'
-    //still write code for inserting into custom fileds 1.name 2. reviewers name 3. reviewer email
-
-   );
+    'post_type'   =>'reviews',
+    'meta_input'  => array(
+      'reviewer_name' => $name,
+      'reviewer_email'  => $email
+    )
+     );
 
 wp_insert_post( $postarr );
-echo "submitted your valuble review";
-  die();
 // send email copy to admin of site to check
-  $to =get_option('admin_email' );
+
   $subject = 'Review ' . get_option('blogname' ). ' ' . $title ;
   $headers[]= "Reply-To:<". $name ."> <". $email . ">";
-  wp_mail( $to, $subject, $content, $headers );
+  wp_mail( $to_email, $subject, $content, $headers );
+  echo "submitted your valuble review";
+    die();
 
 } catch (Exception $e) {
   echo $e->getMessage();

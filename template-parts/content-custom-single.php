@@ -16,6 +16,9 @@
 	<div class="">
 		<?php
 			the_content();
+			echo '</br>';
+			echo get_the_tag_list( '<br>Tags: ',  ', ','<br>' );
+			echo '</br>';
 			edit_post_link(	);
 		?>
 			</div><!-- .entry-content -->

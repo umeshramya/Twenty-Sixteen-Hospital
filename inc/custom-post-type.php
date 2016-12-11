@@ -129,7 +129,7 @@ function  hospital_insert_department_posts(){
     foreach ($titles as $title ) {
     $title=trim($title);
   $post_object= get_page_by_title( $title,  'OBJECT',  'departments');
-if (null==$post_object){
+  if (null==$post_object){
         wp_insert_post( array(
           'post_name'   =>  $title,
           'post_type'   => 'departments',
@@ -186,7 +186,7 @@ Facilities custom post type
      	register_post_type( "facilities", $args );
   }
   // ============insert post facilities atomatically===============
-  function  hospital_insert_facility_posts(){
+function  hospital_insert_facility_posts(){
     $titles= array_reverse(explode(',' , get_option( 'facilities')));//this array reverse to make first entey to make it latest post
       foreach ($titles as $title ) {
       $title=trim($title);
@@ -202,7 +202,7 @@ Facilities custom post type
 
           }
      }
-  }
+}
 
   add_action('init', 'hospital_insert_facility_posts');
 
@@ -215,8 +215,8 @@ Facilities custom post type
   ============================
   */
 
-    add_action( 'init', 'hospital_goverment_schemes_custom_post_type');
-    function hospital_goverment_schemes_custom_post_type (){
+  add_action( 'init', 'hospital_goverment_schemes_custom_post_type');
+  function hospital_goverment_schemes_custom_post_type (){
       $labels = array(
      		"singular_name" => __( 'Schemes' ),
      		"menu_name" => __( 'Schemes' ),
@@ -251,7 +251,7 @@ Facilities custom post type
        	register_post_type( "schemes", $args );
     }
     // ============insert post goverment_schemes atomatically===============
-    function  hospital_insert_goverment_scheems_posts(){
+  function  hospital_insert_goverment_scheems_posts(){
       $titles= array_reverse(explode(',' , get_option( 'goverment_schemes')));//this array reverse to make first entey to make it latest post
         foreach ($titles as $title ) {
         $title=trim($title);
@@ -267,12 +267,9 @@ Facilities custom post type
 
             }
        }
-    }
+  }
 
-    add_action('init', 'hospital_insert_goverment_scheems_posts');
-
-
-
+  add_action('init', 'hospital_insert_goverment_scheems_posts');
 
 
     /*
@@ -281,8 +278,8 @@ Facilities custom post type
     ============================
     */
 
-      add_action( 'init', 'hospital_private_insurence_custom_post_type');
-      function hospital_private_insurence_custom_post_type (){
+add_action( 'init', 'hospital_private_insurence_custom_post_type');
+function hospital_private_insurence_custom_post_type (){
         $labels = array(
           "singular_name" => __( 'Insurence' ),
           "menu_name" => __( 'Insurences' ),
@@ -317,7 +314,7 @@ Facilities custom post type
           register_post_type( "insurences", $args );
       }
       // ============insert post private_insurence atomatically===============
-      function  hospital_insert_private_insurence_posts(){
+    function  hospital_insert_private_insurence_posts(){
         $titles= array_reverse(explode(',' , get_option( 'private_insurence')));//this array reverse to make first entey to make it latest post
           foreach ($titles as $title ) {
           $title=trim($title);
@@ -333,12 +330,9 @@ Facilities custom post type
 
               }
          }
-      }
+    }
 
-      add_action('init', 'hospital_insert_private_insurence_posts');
-
-
-
+add_action('init', 'hospital_insert_private_insurence_posts');
 
 
  /*
@@ -385,7 +379,6 @@ add_meta_box( 'job_description', 'Job Description',
     function($post){
     wp_nonce_field(basename(__FILE__),'hospital_job_description_nounce');
 
-
     $job_description = get_post_meta( $post->ID );
 
     if(!empty($job_description['job_title'])){
@@ -427,35 +420,32 @@ add_meta_box( 'job_description', 'Job Description',
       $email_copy='';
     }
 
-
-
-      echo '<div class="element_wrap">
+            echo '<div class="element_wrap">
             <label for="job_title">Job Title <br></label>
-             <input type="text" name="job_title" id="job_title" style="width:100%" required value="' . $job_title .'">
-             </div>';
+            <input type="text" name="job_title" id="job_title" style="width:100%" required value="' . $job_title .'">
+            </div>';
 
-     echo '<div class="element_wrap">
-           <label for="qualification">Qualification <br></label>
+            echo '<div class="element_wrap">
+            <label for="qualification">Qualification <br></label>
             <input type="text" name="qualification" id="qualification" style="width:100%" value="' . $qualification .'">
             </div>';
 
-    echo '<div class="element_wrap">
-          <label for="vacancies">vacancies <br></label>
-           <input type="text" name="vacancies" id="vacancies" style="width:100%" value="' . $vacancies .'">
-           </div>';
+            echo '<div class="element_wrap">
+            <label for="vacancies">vacancies <br></label>
+            <input type="text" name="vacancies" id="vacancies" style="width:100%" value="' . $vacancies .'">
+            </div>';
 
-       echo '<div class="element_wrap">
+            echo '<div class="element_wrap">
             <label for="closing_date">Closing Date <strong>(Not visible to public after set date)</strong><br></label>
             <input type="date" name="closing_date" id="closing_date"  value="'.$closing_date.'">
             </div>';
 
-
-      echo '<div class="element_wrap">
+            echo '<div class="element_wrap">
             <label for="salary_range">Salary Range<br></label>
-             <input type="text" name="salary_range" id="salary_range" style="width:100%" value="' . $salary_range .'">
-             </div>';
+            <input type="text" name="salary_range" id="salary_range" style="width:100%" value="' . $salary_range .'">
+            </div>';
 
-     echo '<div class="element_wrap">
+            echo '<div class="element_wrap">
             <label for="email_copy">Email Copy</label>
             <input type="email" name="email_copy" id="email_copy" style="width:100%" value="' . $email_copy .'">
             </div> <br><br>';
@@ -468,11 +458,11 @@ add_meta_box( 'job_description', 'Job Description',
               wp_editor( $content, $editor_id, $settings );
 
 
-},
+            },
       'carriers','normal', 'high');
 
 
- } );
+    } );
 
 add_action( 'save_post', 'hospital_save_job_description');
  function hospital_save_job_description($post_id){
@@ -537,10 +527,6 @@ add_action( 'save_post', 'hospital_save_job_description');
            }
          }
 
-
-
-
-
  }
 
 
@@ -584,7 +570,6 @@ Packages custom post type
  }
 
 
-
  /*
  ============================
  Reviews custom post type
@@ -623,6 +608,69 @@ Packages custom post type
 
 
  }
+add_action( 'add_meta_boxes', function(){
+add_meta_box( 'reviwer_details', 'Reviewer Details',
+function($post){
+  wp_nonce_field(basename(__FILE__),'hospital_reviewer_nounce');
+  $reviewer_description = get_post_meta( $post->ID );
+
+
+  if(!empty($reviewer_description['reviewer_name'])){
+    $reviewer_name =esc_attr($reviewer_description['reviewer_name'][0]);
+  }else{
+    $reviewer_name='';
+  }
+
+  if(!empty($reviewer_description['reviewer_email'])){
+    $reviewer_email =esc_attr($reviewer_description['reviewer_email'][0]);
+  }else{
+    $reviewer_email='';
+  }
+
+  echo '<div class="element_wrap">
+  <label for="reviwer_email"> Reviewer Name <br></label>
+  <input type="text" name="reviewer_name" id="reviewer_name"
+  placeholder="Enter Reviewer Name" value="'.$reviewer_name.'" style="width:300px;" required/>
+  </div>';
+
+
+  echo '<br><div class="element_wrap">
+  <label for="reviewer_email"> Reviewer email <br></label>
+  <input type="email" name="reviewer_email" id="reviewer_email"
+  placeholder="Enter Reviewer email" value="'.$reviewer_email.'" style="width:300px;" required/>
+  </div>';
+
+}, 'reviews',  'normal', 'high' );
+
+
+
+});
+
+add_action( 'save_post', 'hospital_save_reviewer_description');
+function hospital_save_reviewer_description($post_id){
+
+   if((!isset($_POST['hospital_reviewer_nounce']))
+   ||
+   (!wp_verify_nonce($_POST['hospital_reviewer_nounce'], basename( __FILE__ )))
+  ){
+     return;
+   }
+
+
+   if (isset($_POST['reviewer_name'])){
+     $meta_value = sanitize_text_field($_POST['reviewer_name']);
+     if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+       update_post_meta( $post_id, 'reviewer_name', $meta_value );
+      }
+    }
+    if (isset($_POST['reviewer_email'])){
+      $meta_value = sanitize_email($_POST['reviewer_email']);
+      if ( isset( $meta_value ) && 0 < strlen( trim( $meta_value ) ) ) {
+        update_post_meta( $post_id, 'reviewer_email', $meta_value );
+       }
+     }
+}
+
 
 
  ?>

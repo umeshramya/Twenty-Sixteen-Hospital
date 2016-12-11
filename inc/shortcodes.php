@@ -113,20 +113,25 @@ return $return_string;
 shortr code for review submission
 =======================================
 */
- add_shortcode( 'review_submit', function(){
+ add_shortcode( 'review_submit', function($attr){
+  $to_email = $attr['to_email'];
    ?>
 <form class="" action="" method="post">
+
+
 <label for="hospital_review_title">Title<br></label>
-<input type="text" name='hospital_review_title' id='hospital_review_title' placeholder="Please enter title of your review" required="required"/>
+<input type="text" name='hospital_review_title' id='hospital_review_title' placeholder="Please enter title of your review" required/>
 
 <label for="hospital_reviewer_email">Your name<br></label>
-<input type="email" name='hospital_reviewer_name' id='hospital_reviewer_name' placeholder="Please enter your name" required="required"/>
+<input type="email" name='hospital_reviewer_name' id='hospital_reviewer_name' placeholder="Please enter your name" required/>
 
 <label for="hospital_reviewer_email">Your email<br.</label>
-<input type="text" name='hospital_reviewer_email' id='hospital_reviewer_email' placeholder="Please enter your name" required="required" />
+<input type="text" name='hospital_reviewer_email' id='hospital_reviewer_email' placeholder="Please enter your name" required />
 
 <label for="hospital_review_content">Reivew<br></label>
-<textarea name="hospital_review_content" id="hospital_review_content" placeholder="Please enter your review " required="required"></textarea>
+<textarea name="hospital_review_content" id="hospital_review_content" placeholder="Please enter your review " required></textarea>
+
+<input type="hidden" name='hospital_to_email' id='hospital_to_email'   value="<?php  echo $to_email  ?>"/>
 
 
 <label for="btn_submit_review"><br></label>
@@ -135,5 +140,28 @@ shortr code for review submission
 
    <?php
  } );
+
+// short code of [contact form contact_form to_email=""]
+add_shortcode( 'contact_form', function($attr){
+$to_email = $attr['to_email'];
+ ?>
+
+ <form  id="author_contact_form">
+ <input type="hidden" name="to_email" id= "to_email" value="<?php echo  $to_email; ?>">
+ <label for="name_email"></label>Name
+ <input type="text" name="name_email" id="name_email" value="" placeholder="Enter name">
+ <label for="from_email"></label>email.
+ <input type="email" name="from_email" id="from_email" value="" placeholder="enter your email">
+ <label for="subject_email"></label>subject
+ <input type="text" name="subject_email" id="subject_email" value="" placeholder="enter your email subject">
+ <label for="message_email"></label>Message
+ <textarea name="message_email" id="message_email" rows="8" cols="80"></textarea>
+
+ <input type="button"  name="btn_contact" id="btn_contact" value="Send email">
+
+</form>
+<div id="email_result"></div>
+<?php
+} );
 
  ?>

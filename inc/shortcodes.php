@@ -129,7 +129,7 @@ shortr code for review submission
 <input type="text" name='hospital_reviewer_email' id='hospital_reviewer_email' placeholder="Please enter your name" required />
 
 <label for="hospital_review_content">Reivew<br></label>
-<textarea name="hospital_review_content" id="hospital_review_content" placeholder="Please enter your review " required></textarea>
+<textarea name="hospital_review_content" id="hospital_review_content" placeholder="Please enter your review" rows="8" cols="80" required></textarea>
 
 <input type="hidden" name='hospital_to_email' id='hospital_to_email'   value="<?php  echo $to_email  ?>"/>
 

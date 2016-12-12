@@ -11,7 +11,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 		<main role="main">
-			<div class="archive-posts-wraper-hospital">
+			<div class="single-post-wraper-hospital">
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();

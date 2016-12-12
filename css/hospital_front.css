@@ -1,4 +1,14 @@
 /*
+classes and descriptions
+1. .archive-posts-wraper-hospital -- for archives below main with for full 100% width without sidebar
+2. .single-post-wraper-hospital-- for single post with side bar active
+3. .title-hospital-wraper-- for title wraper
+4. .hospital-author-meta  -- authorprofile on author-profile.php
+5. .hospital-contact-form-- author contact form author-profile.php
+
+
+
+
 ====================
 Media queries
 ====================
@@ -6,7 +16,7 @@ Media queries
 /* Mobiles in Potrait mode */
 @media only screen
 and (max-width : 320px) {
-  .archive-posts-wraper-hospital, .title-hospital-wraper{
+  .archive-posts-wraper-hospital, .title-hospital-wraper, .single-post-wraper-hospital{
     margin: auto;
     width :304px;
   }
@@ -24,7 +34,7 @@ and (max-width : 320px) {
 @media only screen
 and (min-width : 321px)
 and (max-width : 620px) {
-  .archive-posts-wraper-hospital, .title-hospital-wraper{
+  .archive-posts-wraper-hospital, .title-hospital-wraper, .single-post-wraper-hospital{
     margin: auto;
     width :304px;
   }
@@ -41,7 +51,7 @@ and (max-width : 620px) {
 @media only screen
 and (min-width : 620px)
 and (max-width : 1000px) {
-  .archive-posts-wraper-hospital, .title-hospital-wraper{
+  .archive-posts-wraper-hospital, .title-hospital-wraper, .single-post-wraper-hospital{
     margin: auto;
     width :608px;
   }
@@ -62,6 +72,11 @@ and (max-width : 1300px) {
     width :912px;
   }
 
+  .single-post-wraper-hospital{
+    margin: auto;
+    width :608px;
+  }
+
   .hospital-author-meta , .hospital-contact-form {
     width: 450px;
     margin: auto;
@@ -73,9 +88,14 @@ and (max-width : 1300px) {
 /* very large screen devices */
 @media only screen
 and (min-width : 1300px) {
-  .archive-posts-wraper-hospital, .title-hospital-wraper {
+  .archive-posts-wraper-hospital, .title-hospital-wraper{
     margin: auto;
     width :1216px;
+  }
+
+  .single-post-wraper-hospital{
+    margin: auto;
+    width :608px;
   }
 
   .hospital-author-meta , .hospital-contact-form {
@@ -141,6 +161,9 @@ color: #007acc;
 .content-area-without-sidebar-hospital{
   width:100%;
 }
+.single-post-wraper-hospital{
+  max-width: 800px;
+}
 
 /* this is for autho .php*/
 .hospital-author-meta , .hospital-contact-form {
@@ -167,3 +190,7 @@ img:hover {
     opacity: 0.80;
     filter: alpha(opacity=80); /* For IE8 and earlier */
 }
+
+ /*.widget{
+   border: none;
+ }*/

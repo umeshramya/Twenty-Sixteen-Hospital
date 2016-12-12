@@ -147,7 +147,7 @@ Creatig menu items for archives
 1. Departements
 2. facilities
 3. Carriers
-4. Private insurences
+4. Private insurances
 5. Goverment Schemes
 6. Packages
 7. Reviews
@@ -188,9 +188,9 @@ if( !$menu_exists){
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Insurences'),
+            'menu-item-title' =>  __('insurances'),
              'menu-item-object' => 'archive',
-            'menu-item-url' => home_url( '/?post_type=insurences' ),
+            'menu-item-url' => home_url( '/?post_type=insurances' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(

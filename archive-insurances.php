@@ -7,7 +7,7 @@ This template is for displaying archives of departments like cardiology, surgery
 
 <?php get_header( ); ?>
 <header>
-	<div class="title-hospital-wraper"><h1>Private Insurences</h1> </div>
+	<div class="title-hospital-wraper"><h1>Private insurances</h1> </div>
 
 </header>
 <div id="primary" class="content-area-without-sidebar-hospital">

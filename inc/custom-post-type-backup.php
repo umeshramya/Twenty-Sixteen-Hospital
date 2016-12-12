@@ -274,22 +274,22 @@ function  hospital_insert_facility_posts(){
 
     /*
     ============================
-    Private insurance custom post type
+    Private Insurence custom post type
     ============================
     */
 
-add_action( 'init', 'hospital_private_insurance_custom_post_type');
-function hospital_private_insurance_custom_post_type (){
+add_action( 'init', 'hospital_private_insurence_custom_post_type');
+function hospital_private_insurence_custom_post_type (){
         $labels = array(
-          "singular_name" => __( 'insurance' ),
-          "menu_name" => __( 'insurances' ),
+          "singular_name" => __( 'Insurence' ),
+          "menu_name" => __( 'Insurences' ),
           "archives" => __( 'true' ),
           );
 
         $args = array(
-          "label" => __( 'insurances' ),
+          "label" => __( 'Insurences' ),
           "labels" => $labels,
-          "description" => "These posts for adding insurances inside the hospital
+          "description" => "These posts for adding Insurences inside the hospital
                             These are auto generated from hospital setting options
                             To order them change the date
                             To delete the post empty it from thrash also or else it wont function",
@@ -306,23 +306,23 @@ function hospital_private_insurance_custom_post_type (){
           "create_posts" => "do_not_allow", ),// false < WP 4.5, credit @Ewout
           "map_meta_cap" => true,
           "hierarchical" => false,
-          "rewrite" => array( "slug" => "insurances", "with_front" => true ),
+          "rewrite" => array( "slug" => "insurences", "with_front" => true ),
           "query_var" => true,
           "menu_icon" =>'dashicons-palmtree',
           "supports" => array( "title", "editor", "thumbnail", "excerpt" ),
         'taxonomies' => array('post_tag'));
-          register_post_type( "insurances", $args );
+          register_post_type( "insurences", $args );
       }
-      // ============insert post private_insurance atomatically===============
-    function  hospital_insert_private_insurance_posts(){
-        $titles= array_reverse(explode(',' , get_option( 'private_insurance')));//this array reverse to make first entey to make it latest post
+      // ============insert post private_insurence atomatically===============
+    function  hospital_insert_private_insurence_posts(){
+        $titles= array_reverse(explode(',' , get_option( 'private_insurence')));//this array reverse to make first entey to make it latest post
           foreach ($titles as $title ) {
           $title=trim($title);
-        $post_object= get_page_by_title( $title,  'OBJECT',  'insurances');
+        $post_object= get_page_by_title( $title,  'OBJECT',  'insurences');
       if (null==$post_object){
               wp_insert_post( array(
                 'post_name'   =>  $title,
-                'post_type'   => 'insurances',
+                'post_type'   => 'insurences',
                 'post_title' => $title,
                 'post_status' => 'publish'
               ));
@@ -332,7 +332,7 @@ function hospital_private_insurance_custom_post_type (){
          }
     }
 
-add_action('init', 'hospital_insert_private_insurance_posts');
+add_action('init', 'hospital_insert_private_insurence_posts');
 
 
  /*

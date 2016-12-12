@@ -49,7 +49,7 @@ function hospital_theme_custom_settings(){
   register_setting( 'hospital-theme-group', 'activate_contact' );
   register_setting( 'hospital-theme-group', 'departements' );
   register_setting( 'hospital-theme-group', 'facilities' );
-  register_setting( 'hospital-theme-group', 'private_insurance' );
+  register_setting( 'hospital-theme-group', 'private_insurence' );
   register_setting( 'hospital-theme-group', 'goverment_schemes' );
 
   register_setting( 'hospital-theme-group', 'faculty_hierarchy');
@@ -77,7 +77,7 @@ function hospital_theme_custom_settings(){
   // add_settings_field( 'sidebar-google-plus', 'Google Plus', 'hospital_sidebar_google_plus', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital-departement', 'Departements', 'hospital_sidebar_departements', 'umesh_hospital','hospital_sidebar_options');
   add_settings_field( 'hospital-facilities', 'Facilities', 'hospital_sidebar_facilities', 'umesh_hospital', 'hospital_sidebar_options' );
-  add_settings_field( 'hospital-private-insurance', 'Private insurance', 'hospital_sidebar_priavte_insurance', 'umesh_hospital', 'hospital_sidebar_options' );
+  add_settings_field( 'hospital-private-insurence', 'Private Insurence', 'hospital_sidebar_priavte_insurence', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospita_goverment-schemes', 'Goverment Schemes', 'hospital_goverment_schemes', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospital-faculty-hierarchy', 'Faculty Hierarchy', 'hospital_faculty_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'sidebar-profile-picture', 'Hospital Profile picture', 'hospital_sidebar_profile_picture', 'umesh_hospital', 'hospital_sidebar_options');
@@ -160,10 +160,10 @@ function hospital_sidebar_facilities(){
   echo '<p> Use approprite caps and small letters</p>';
 }
 
-function hospital_sidebar_priavte_insurance(){
-  $private_insurance = esc_attr( get_option( 'private_insurance' ) );
-  echo '<input type="text" name="private_insurance" value="' . $private_insurance . '" placeholder="Private insurance" style="width:100%";/>';
-  echo '<p>Enter each insurance by coma separtation </p>';
+function hospital_sidebar_priavte_insurence(){
+  $private_insurence = esc_attr( get_option( 'private_insurence' ) );
+  echo '<input type="text" name="private_insurence" value="' . $private_insurence . '" placeholder="Private Insurence" style="width:100%";/>';
+  echo '<p>Enter each Insurence by coma separtation </p>';
   echo '<p>Example ;- Vidal health care, Medi asst, Star Health</p>';
   echo '<p> Use approprite caps and small letters</p>';
 }

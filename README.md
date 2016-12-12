@@ -108,3 +108,10 @@ Display hospital email
 
 ##[hospital_phones_email]
 Displays all phones set in setting and also hospital email
+
+
+##[schemes]
+Displays titles with links of Goverment Schemes
+
+##[insurances]
+Displays titles with links of Private insurances

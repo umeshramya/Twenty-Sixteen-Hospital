@@ -233,4 +233,43 @@ add_shortcode( 'hospital_phones_email', function(){
 } );
 
 
+
+//  shottcode [schemes]
+add_shortcode( 'schemes', function (){
+  $args=array(
+    'post_type' =>  'schemes'
+  );
+  $the_query = new WP_Query( $args );
+if ( $the_query->have_posts() ) {
+	$return_string = '<ul>';
+	while ( $the_query->have_posts() ) {
+		$the_query->the_post();
+		 $return_string .='<a href="'. esc_url(get_permalink()). '"><li>' . get_the_title() . '</li></a>';
+	}
+ $return_string .=  '</ul>';
+	/* Restore original Post Data */
+	wp_reset_postdata();
+  return $return_string;
+}
+});
+
+
+//  shottcode [insurances]
+add_shortcode( 'insurances', function (){
+  $args=array(
+    'post_type' =>  'insurances'
+  );
+  $the_query = new WP_Query( $args );
+if ( $the_query->have_posts() ) {
+	$return_string = '<ul>';
+	while ( $the_query->have_posts() ) {
+		$the_query->the_post();
+		 $return_string .='<a href="'. esc_url(get_permalink()). '"><li>' . get_the_title() . '</li></a>';
+	}
+ $return_string .=  '</ul>';
+	/* Restore original Post Data */
+	wp_reset_postdata();
+  return $return_string;
+}
+});
  ?>

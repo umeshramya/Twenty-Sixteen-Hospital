@@ -97,8 +97,8 @@ echo '<span style="color:red">*</span><input type="text" name="hospital_name" va
 
 function hospital_sidebar_address(){
 $hospital_address= esc_attr( get_option( 'hospital_address' ) );
-// echo '<span style="color:red">*</span><input type="text" name="hospital_address" value="' . $hospital_address . '" placeholder="Hospital Address""  style="width:100%; min-width:250px;" required/>';
-echo '<textarea name="hospital_address" placeholder="Hospital Address"  rows="8" cols="100">'. $hospital_address .'</textarea>';
+
+echo '<span style="color:red">*</span><br><textarea name="hospital_address" placeholder="Hospital Address"  rows="8" cols="100" required>'. $hospital_address .'</textarea>';
 }
 
 function hospital_sidebar_phone(){

@@ -8,75 +8,75 @@ CUSTOM POST TYPE
  //this icon is used evry tyope of hospital custom post at meny admin
 
 
-$contact= get_option( 'activate_contact' );
-if(@$contact == 1){
- add_action( 'init', 'hospital_contact_custom_post_type');
- add_filter( 'manage_hopsital_contact_posts_columns', 'hospital_contact_columns');
- add_action( 'manage_hopsital_contact_posts_custom_column', 'hospital_contact_custom_column', 10, 2 );
-
- }
-
-//==========contact form CPT =============
-
-function hospital_contact_custom_post_type(){
-
-
-  $label  = array(
-    'name'          =>'Messages',
-    'singular_name' =>'Message',
-    'menu_name'     =>'Messages',
-    'name_admin_bar'=>'Message'
-   );
-
-   $args  = array(
-     'labels'           =>$label,
-     'show_ui'          =>true,
-     'show_in_menu'     =>true,
-     'capability_type'  =>'post',
-     'position'         =>26,
-     'menu_icon'        => 'dashicons-palmtree' ,
-     'hierarchical'     =>false,
-     'supports'         =>array('title', 'editor', 'author')
-    );
-
-    register_post_type( 'hopsital_contact', $args );
-
-}
-
-function hospital_contact_columns($newColumns){
-  $newColumns = array();
-  $newColumns['title']='Name with Message';
-  $newColumns['from_email']='From email';
-  // $newColumns['message']='Message';
-  $newColumns['to_email']='To email';
-  $newColumns['to_name']='To Name';
-  $newColumns['date']='Date';
-  return $newColumns;
-
-}
-
-function hospital_contact_custom_column($colum, $post_id){
-  switch ($colum) {
-    case ('from_email'):
-    echo 'From email';
-    break;
-    case ('to_email'):
-    echo 'To email';
-    break;
-    break;
-    case ('to_email'):
-    echo 'To email';
-    break;
-    case ('to_name'):
-    echo 'To name';
-    break;
-
-    default:
-      # code...
-      break;
-  }
-
-}
+// $contact= get_option( 'activate_contact' );
+// if(@$contact == 1){
+//  add_action( 'init', 'hospital_contact_custom_post_type');
+//  add_filter( 'manage_hopsital_contact_posts_columns', 'hospital_contact_columns');
+//  add_action( 'manage_hopsital_contact_posts_custom_column', 'hospital_contact_custom_column', 10, 2 );
+//
+//  }
+//
+// //==========contact form CPT =============
+// 
+// function hospital_contact_custom_post_type(){
+//
+//
+//   $label  = array(
+//     'name'          =>'Messages',
+//     'singular_name' =>'Message',
+//     'menu_name'     =>'Messages',
+//     'name_admin_bar'=>'Message'
+//    );
+//
+//    $args  = array(
+//      'labels'           =>$label,
+//      'show_ui'          =>true,
+//      'show_in_menu'     =>true,
+//      'capability_type'  =>'post',
+//      'position'         =>26,
+//      'menu_icon'        => 'dashicons-palmtree' ,
+//      'hierarchical'     =>false,
+//      'supports'         =>array('title', 'editor', 'author')
+//     );
+//
+//     register_post_type( 'hopsital_contact', $args );
+//
+// }
+//
+// function hospital_contact_columns($newColumns){
+//   $newColumns = array();
+//   $newColumns['title']='Name with Message';
+//   $newColumns['from_email']='From email';
+//   // $newColumns['message']='Message';
+//   $newColumns['to_email']='To email';
+//   $newColumns['to_name']='To Name';
+//   $newColumns['date']='Date';
+//   return $newColumns;
+//
+// }
+//
+// function hospital_contact_custom_column($colum, $post_id){
+//   switch ($colum) {
+//     case ('from_email'):
+//     echo 'From email';
+//     break;
+//     case ('to_email'):
+//     echo 'To email';
+//     break;
+//     break;
+//     case ('to_email'):
+//     echo 'To email';
+//     break;
+//     case ('to_name'):
+//     echo 'To name';
+//     break;
+//
+//     default:
+//       # code...
+//       break;
+//   }
+//
+// }
 
 /*
 =======================

@@ -46,8 +46,10 @@ get_header(); ?>
 		endwhile;
 		?>
 	</div> <!--.archive-posts-wraper-hospital-->
-	</main><!-- .site-main -->
+	<hr id='bottum-line'>
 	<?php get_sidebar( 'content-bottom' ); ?>
+	</main><!-- .site-main -->
+
 
 </div><!-- .content-area -hospital-->
 <?php get_sidebar(); ?>

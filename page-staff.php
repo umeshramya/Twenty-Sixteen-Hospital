@@ -47,8 +47,9 @@ Template Name: All staff list
       //this div meant for creating pagination
 			 ?>
 		</div><!--.hospital-old-new-posts -->
-
+    <hr id='bottum-line'>
+    <?php get_sidebar( 'content-bottom' ); ?>
 	 </main>
-   <?php get_sidebar( 'content-bottom' ); ?>
+
  </div><!--.content area-->
 <?php get_footer( ); ?>

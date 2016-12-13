@@ -172,8 +172,10 @@ color: #007acc;
   min-width: 290px;
 
 }
-
-
+/*puts line above content bottum-line*/
+#bottum-line{
+  size:40px;
+}
 
 
 /*
@@ -191,6 +193,7 @@ img:hover {
     filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
- /*.widget{
-   border: none;
- }*/
+
+main .widget{
+  border: none;
+}

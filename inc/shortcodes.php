@@ -117,7 +117,7 @@ shortr code for review submission
   $to_email = $attr['to_email'];
    ?>
 <form class="" action="" method="post">
-
+<h5>The review submitted on this form will be moderated by admin if found appropriate may be published for public view<h5>
 
 <label for="hospital_review_title">Title<br></label>
 <input type="text" name='hospital_review_title' id='hospital_review_title' placeholder="Please enter title of your review" required/>
@@ -174,12 +174,14 @@ add_shortcode( 'hospital_name', function(){
 // shortcode [emergency_phone]
 add_shortcode( 'emergency_phone', function(){
   $retrun_string= get_option('emergency_phone');
+  $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [ambulance_phone]
 add_shortcode( 'ambulance_phone', function(){
   $retrun_string= get_option('ambulance_phone');
+  $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
@@ -187,18 +189,21 @@ add_shortcode( 'ambulance_phone', function(){
 //shortcode [help_desk_phone]
 add_shortcode( 'help_desk_phone', function(){
   $retrun_string= get_option('help_desk_phone');
+  $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [office_phone]
 add_shortcode( 'office_phone', function(){
   $retrun_string= get_option('office_phone');
+  $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [hospital_email]
 add_shortcode( 'hospital_email', function(){
   $retrun_string= get_option('hospital_email');
+  $retrun_string ='<a href="mailto:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
@@ -211,23 +216,26 @@ add_shortcode( 'hospital_phones_email', function(){
   $hospital_email =trim(get_option('hospital_email'));
 
   if($emergency_phone!=''){
-  $retrun_string = 'Emergency: '. $emergency_phone;
+    $retrun_string ='<a href="tel:'.$emergency_phone.'">Emergency: '. $emergency_phone .',</a>';
   }
 
   if ($ambulance_phone !=''){
-  $retrun_string .= ', Ambulance: '.  $ambulance_phone;
+    $retrun_string .='<a href="tel:'.$ambulance_phone.'"> Ambulance: '. $ambulance_phone .',</a>';
   }
 
   if($help_desk_phone!=''){
-  $retrun_string .= ', Help Desk: '. $help_desk_phone;
+    $retrun_string .='<a href="tel:'.$help_desk_phone.'"> Help Desk: '. $help_desk_phone .',</a>';
+
   }
 
   if($office_phone!=''){
-  $retrun_string .= ', Office Phone: '. $office_phone;
+    $retrun_string .='<a href="tel:'.$office_phone.'"> Office Phone: '. $office_phone .',</a>';
+
   }
 
   if($hospital_email!=''){
-  $retrun_string .= ', email: '. $hospital_email;
+    $retrun_string .='<a href="mailto:'.$hospital_email.'"> email: '. $hospital_email .'</a>';
+
   }
   return $retrun_string;
 } );
@@ -272,4 +280,6 @@ if ( $the_query->have_posts() ) {
   return $return_string;
 }
 });
+
+
  ?>

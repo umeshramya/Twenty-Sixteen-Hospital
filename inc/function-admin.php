@@ -42,7 +42,7 @@ function hospital_theme_custom_settings(){
 
   //=========== SETTING OPTIONS =============
   register_setting( 'hospital-theme-group', 'hospital_name' );
-    // register_setting( 'hospital-theme-group', 'hospital_address' );
+  register_setting( 'hospital-theme-group', 'hospital_address' );
   register_setting( 'hospital-theme-group', 'emergency_phone' );
   register_setting( 'hospital-theme-group', 'ambulance_phone' );
   register_setting( 'hospital-theme-group', 'help_desk_phone' );
@@ -57,24 +57,16 @@ function hospital_theme_custom_settings(){
   register_setting( 'hospital-theme-group', 'office_phone');
 
   register_setting( 'hospital-theme-group', 'profile_picture' );
-  // register_setting( 'hospital-theme-group', 'facebook_handler' );
-  // register_setting( 'hospital-theme-group', 'twitter_handler','sanitize_twiter_handler' );
-  // register_setting( 'hospital-theme-group', 'google_plus_handler' );
 
   //add sectiions to seeting page
   add_settings_section( 'hospital_sidebar_options', 'Sidebar Options', 'hospital_sidebar_options', 'umesh_hospital' );
   //add fields to setting section
   add_settings_field( 'hospital-name', 'Hospital Name', 'hospital_sidebar_name', 'umesh_hospital', 'hospital_sidebar_options'  );
-  // add_settings_field( 'hospital-address', 'Hospital address', 'hospital_sidebar_address', 'umesh_hospital', 'hospital_sidebar_options' );
+  add_settings_field( 'hospital-address', 'Hospital address', 'hospital_sidebar_address', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'sidebar-phones', 'Hospital Phones', 'hospital_sidebar_phone', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'Activate-contact-form', 'Activate Builtin Contact Form', 'activate_hopsital_contact_form', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital_email', 'Hospital email', 'hospital_contact_email', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'office-phone', 'Office Phone', 'hospital_office_phone', 'umesh_hospital','hospital_sidebar_options');
-
-
-  // add_settings_field( 'sidebar-facebook', 'Facebook Page', 'hospital_sidebar_facebook', 'umesh_hospital', 'hospital_sidebar_options');
-  // add_settings_field( 'sidebar-twitter', 'Twitter', 'hospital_sidebar_twitter', 'umesh_hospital', 'hospital_sidebar_options');
-  // add_settings_field( 'sidebar-google-plus', 'Google Plus', 'hospital_sidebar_google_plus', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital-departement', 'Departements', 'hospital_sidebar_departements', 'umesh_hospital','hospital_sidebar_options');
   add_settings_field( 'hospital-facilities', 'Facilities', 'hospital_sidebar_facilities', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospital-private-insurance', 'Private insurance', 'hospital_sidebar_priavte_insurance', 'umesh_hospital', 'hospital_sidebar_options' );
@@ -100,12 +92,13 @@ function activate_hopsital_contact_form(){
 function hospital_sidebar_name(){
 $hospital_name = esc_attr( get_option( 'hospital_name' ) );
 echo '<span style="color:red">*</span><input type="text" name="hospital_name" value="' . $hospital_name . '" placeholder="Hospital Name"  style="width:50%; min-width:250px;" required/>';
-// echo '<input type="text" name="help_desk_phone" value="' . $help_desk_phone . '" placeholder="Help Desk Phone" />';
+
 }
 
 function hospital_sidebar_address(){
-// $hospital_address= esc_attr( get_option( 'hopsital_address' ) );
-// echo '<textarea name="hopsital_address" placeholder="Hospital Address">'. $hospital_address .'</textarea>';
+$hospital_address= esc_attr( get_option( 'hospital_address' ) );
+// echo '<span style="color:red">*</span><input type="text" name="hospital_address" value="' . $hospital_address . '" placeholder="Hospital Address""  style="width:100%; min-width:250px;" required/>';
+echo '<textarea name="hospital_address" placeholder="Hospital Address"  rows="8" cols="100">'. $hospital_address .'</textarea>';
 }
 
 function hospital_sidebar_phone(){
@@ -128,21 +121,6 @@ function hospital_office_phone(){
 
 }
 
-
-// function hospital_sidebar_facebook(){
-// $facebook_handler = esc_attr( get_option( 'facebook_handler' ) );
-// echo '<input type="text" name="facebook_handler" value="' . $facebook_handler . '" placeholder="FaceBook" />';
-// }
-//
-// function hospital_sidebar_twitter(){
-//   $twitter_handler = esc_attr( get_option( 'twitter_handler' ) );
-//   echo '<input type="text" name="twitter_handler" value="' . $twitter_handler . '" placeholder="Twitter" /> <p class="description">Input twitter account without @ symbol</p>';
-// }
-//
-// function hospital_sidebar_google_plus(){
-//   $google_plus_handler = esc_attr( get_option( 'google_plus_handler' ) );
-//   echo '<input type="text" name="google_plus_handler" value="' . $google_plus_handler . '" placeholder="Google Plus" />';
-// }
 
 function hospital_sidebar_departements(){
   $departements = esc_attr( get_option( 'departements' ) );
@@ -197,12 +175,7 @@ if(empty($profile_picture)){
 }
 
 }
-// //sanitize twitter handler
-// function sanitize_twiter_handler($input){
-//   $output = sanitize_text_field( $input );
-//   $output = str_replace('@','',$output);
-//   return $output;
-// }
+
 
 function hospital_sidebar_options(){
   // echo '<h3>custom hopsital sidebar options</h3>';

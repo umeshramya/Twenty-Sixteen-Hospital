@@ -106,8 +106,11 @@ Display office phone
 Display hospital email
 
 
-##[hospital_phones_email]
+##[address_phones_email]
 Displays all phones set in setting and also hospital email
+
+##[hospital_address]
+Dispays Hospital address within <pre> eleement
 
 
 ##[schemes]

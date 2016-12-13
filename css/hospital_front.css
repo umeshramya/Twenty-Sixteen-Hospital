@@ -90,7 +90,7 @@ and (max-width : 1300px) {
 and (min-width : 1300px) {
   .archive-posts-wraper-hospital, .title-hospital-wraper{
     margin: auto;
-    width :1216px;
+    width :912px;
   }
 
   .single-post-wraper-hospital{
@@ -196,4 +196,20 @@ img:hover {
 
 main .widget{
   border: none;
+}
+
+.site-header {
+padding-top:0.0em;
+margin:0px;
+}
+
+
+.header-image .img{
+margin-top:0px;
+padding-top: 0px;
+/*height: auto;*/
+/*max-width: 100%;*/
+display: block;
+margin: auto;
+
 }

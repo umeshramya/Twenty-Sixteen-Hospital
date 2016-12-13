@@ -48,9 +48,9 @@
 					do_action( 'twentysixteen_credits' );
 				?>
 
-					<?php 
+					<?php
 					// dispalys hospital phones and emails
-					echo do_shortcode( "[hospital_phones_email]" )
+					echo do_shortcode( "[address_phones_email]" )
 					?>
 
 

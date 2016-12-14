@@ -10,7 +10,7 @@ FUNCTION ADMIN
 
 function hospital_add_admin_menu(){
 // generate Hospital admin page
-  // add_menu_page( 'Hospital Theme Options', 'Hospital', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' ,get_stylesheet_directory_uri().'/images/favicon.ico', 110 );
+
 add_menu_page( 'Hospital Theme Options', 'Hospital', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' ,'', 110 );
   // genearte admin menu sub pages
   add_submenu_page( 'umesh_hospital', 'Hospital Settings Options', 'Settings', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' );
@@ -190,11 +190,6 @@ function hospital_sidebar_options(){
 }
 
 
-
-
-
-
-
 /*
 ====================
 USER ADD metabox
@@ -251,8 +246,9 @@ $checked = (@$option_checked==1 ? 'checked':'');
 echo '<label for="activate_contact_form">Activate Contact Form </label>';
 echo '<input type="checkbox"  name="activate_contact_form"  value="1" '. $checked .' /></br>';
 
-
+// to be added in future versions
 // ====================Consulation Time=============
+
 // ====================On leave setting=============
 
 }

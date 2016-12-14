@@ -7,6 +7,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<div class="single-post-wraper-hospital"><!-- In ths archive Single ppost wraper is used because it has to be presented along with side bar-->
 
 		<?php if ( have_posts() ) : ?>
 
@@ -44,6 +45,7 @@ get_header(); ?>
 
 		endif;
 		?>
+	</div><!--.single-post-wraper-hospital-->
 		<hr id='bottum-line'>
 		<?php get_sidebar( 'content-bottom' ); ?>
 		</main><!-- .site-main -->

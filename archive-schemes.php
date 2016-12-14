@@ -38,6 +38,6 @@ This template is for displaying archives of departments like cardiology, surgery
     <hr id='bottum-line'>
     <?php get_sidebar( 'content-bottom' ); ?>
 	 </main>
-   
+
  </div><!--.content area-->
 <?php get_footer( ); ?>

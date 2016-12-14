@@ -233,7 +233,7 @@ add_shortcode( 'address_phones_email', function(){
   $hospital_email =trim(get_option('hospital_email'));
 
   if($hospital_address!=''){
-  $retrun_string = '<a href="'.$hospital_google_map_link.'">'. $hospital_address . '<br></a>';
+  $retrun_string = '<a href="'.$hospital_google_map_link.'">'.'Address: '. $hospital_address . '<br></a>';
 
   }
 

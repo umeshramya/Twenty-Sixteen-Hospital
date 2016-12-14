@@ -251,11 +251,6 @@ $checked = (@$option_checked==1 ? 'checked':'');
 echo '<label for="activate_contact_form">Activate Contact Form </label>';
 echo '<input type="checkbox"  name="activate_contact_form"  value="1" '. $checked .' /></br>';
 
-// echo '<input type="text" name="registration_number" id="registration_number" value="'. trim($cur_user_registration) .'"/></br>';
-//
-// $option_checked = get_option( 'activate_contact' );
-// $checked = (@$option_checked==1 ? 'checked':'');
-// echo '<label> <input type="checkbox"  name="activate_contact"  value="1" '. $checked .' /></label> </br>';
 
 // ====================Consulation Time=============
 // ====================On leave setting=============

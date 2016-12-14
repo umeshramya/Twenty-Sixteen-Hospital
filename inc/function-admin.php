@@ -43,6 +43,7 @@ function hospital_theme_custom_settings(){
   //=========== SETTING OPTIONS =============
   register_setting( 'hospital-theme-group', 'hospital_name' );
   register_setting( 'hospital-theme-group', 'hospital_address' );
+  register_setting( 'hospital-theme-group', 'hospital_google_map_link' );
   register_setting( 'hospital-theme-group', 'emergency_phone' );
   register_setting( 'hospital-theme-group', 'ambulance_phone' );
   register_setting( 'hospital-theme-group', 'help_desk_phone' );
@@ -63,6 +64,7 @@ function hospital_theme_custom_settings(){
   //add fields to setting section
   add_settings_field( 'hospital-name', 'Hospital Name', 'hospital_sidebar_name', 'umesh_hospital', 'hospital_sidebar_options'  );
   add_settings_field( 'hospital-address', 'Hospital address', 'hospital_sidebar_address', 'umesh_hospital', 'hospital_sidebar_options' );
+  add_settings_field( 'hospital-google-map-link', 'Hospital Google Map Link', 'hospital_sidebar_google_map_link', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'sidebar-phones', 'Hospital Phones', 'hospital_sidebar_phone', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'Activate-contact-form', 'Activate Builtin Contact Form', 'activate_hopsital_contact_form', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital_email', 'Hospital email', 'hospital_contact_email', 'umesh_hospital', 'hospital_sidebar_options');
@@ -99,6 +101,12 @@ function hospital_sidebar_address(){
 $hospital_address= esc_attr( get_option( 'hospital_address' ) );
 
 echo '<span style="color:red">*</span><br><textarea name="hospital_address" placeholder="Hospital Address"  rows="8" cols="100" required>'. $hospital_address .'</textarea>';
+}
+
+function hospital_sidebar_google_map_link(){
+$hospital_google_map_link = esc_attr( get_option( 'hospital_google_map_link' ) );
+echo '<input type="text" name="hospital_google_map_link" value="' . $hospital_google_map_link . '" placeholder="Hospital Google Map Link"  style="width:90%; min-width:250px;" />';
+
 }
 
 function hospital_sidebar_phone(){

@@ -213,15 +213,19 @@ add_shortcode( 'hospital_email', function(){
 
 add_shortcode( 'hospital_address',  function(){
   $hospital_address= get_option( 'hospital_address');
-  $retrun_string ='<pre>'. $hospital_address . '</pre>';
+  $hospital_google_map_link= get_option( 'hospital_google_map_link');
+  $retrun_string ='<a href="'.$hospital_google_map_link.'"><pre>'. $hospital_address . '</pre></a>';
   return $retrun_string;
 });
+
+
 
 
 
 //shortcode [hospital_phones_email]
 add_shortcode( 'address_phones_email', function(){
   $hospital_address= get_option( 'hospital_address');
+  $hospital_google_map_link= get_option( 'hospital_google_map_link');
   $emergency_phone =trim(get_option('emergency_phone'));
   $ambulance_phone = trim( get_option('ambulance_phone'));
   $help_desk_phone =trim(get_option('help_desk_phone'));
@@ -229,7 +233,8 @@ add_shortcode( 'address_phones_email', function(){
   $hospital_email =trim(get_option('hospital_email'));
 
   if($hospital_address!=''){
-    $retrun_string = $hospital_address . '<br>';
+  $retrun_string = '<a href="'.$hospital_google_map_link.'">'. $hospital_address . '<br></a>';
+
   }
 
   if($emergency_phone!=''){

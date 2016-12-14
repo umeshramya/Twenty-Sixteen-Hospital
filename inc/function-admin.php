@@ -10,8 +10,8 @@ FUNCTION ADMIN
 
 function hospital_add_admin_menu(){
 // generate Hospital admin page
-  add_menu_page( 'Hospital Theme Options', 'Hospital', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' ,' ', 110 );
-
+  // add_menu_page( 'Hospital Theme Options', 'Hospital', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' ,get_stylesheet_directory_uri().'/images/favicon.ico', 110 );
+add_menu_page( 'Hospital Theme Options', 'Hospital', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' ,'', 110 );
   // genearte admin menu sub pages
   add_submenu_page( 'umesh_hospital', 'Hospital Settings Options', 'Settings', 'manage_options', 'umesh_hospital', 'hospital_theme_create_page' );
   //Activate custum Settings

@@ -1,5 +1,5 @@
 <?php
-/*\
+/*
 This file for functions front end
 
 */

@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * The template for displaying all single posts and attachments
  *
  * @package WordPress
@@ -49,7 +49,7 @@ get_header(); ?>
 	<hr id='bottum-line'>
 	<?php get_sidebar( 'content-bottom' ); ?>
 	</main><!-- .site-main -->
-	
+
 
 </div><!-- .content-area -hospital-->
 <?php get_sidebar(); ?>

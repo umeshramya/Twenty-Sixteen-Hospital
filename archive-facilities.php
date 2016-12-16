@@ -11,19 +11,21 @@ This template is for displaying archives of facilties like CT SCan, MRI etc
 <div id="primary" class="content-area-without-sidebar-hospital">
 		<main role="main">
 			<div class="archive-posts-wraper-hospital">
-		<?php if(have_posts()):	?>
-		<div style="clear: both;"></div><!-- dummy div for clear floats-->
+        <?php $args = array('orderby'=> 'title',
+                            'order' => 'ASC',
+                            'post_type' => 'facilities');
+        $the_query= new WP_Query($args); ?>
+      <?php if($the_query->have_posts()):	?>
+      <div style="clear: both;"></div><!-- dummy div for clear floats-->
 
-		<?php 	while ( have_posts() ) : the_post();?>
+      <?php 	while ($the_query-> have_posts() ) : $the_query->the_post();?>
 
+        <?php get_template_part( '/template-parts/content', 'custom-archive' ); ?>
 
-				<?php get_template_part( '/template-parts/content', 'custom-archive' ); ?>
+      <?php endwhile  ?>
 
-
-
-		<?php endwhile  ?>
-
-		<?php endif; ?>
+      <?php endif; ?>
+      <?php wp_reset_postdata(); ?>
 	</div><!--.archive-posts-wraper-hospital-->
 
 		<div style="clear: both;"></div>

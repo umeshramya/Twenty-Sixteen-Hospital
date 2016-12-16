@@ -266,9 +266,10 @@ add_shortcode( 'address_phones_email', function(){
 
 //  shottcode [schemes]
 add_shortcode( 'schemes', function (){
-  $args=array(
-    'post_type' =>  'schemes'
-  );
+  $args= array('posts_per_page' => -1,
+                      'orderby'=> 'title',
+                      'order' => 'ASC',
+                      'post_type' => 'schemes');
   $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
 	$return_string = '<ul>';
@@ -286,9 +287,10 @@ if ( $the_query->have_posts() ) {
 
 //  shottcode [insurances]
 add_shortcode( 'insurances', function (){
-  $args=array(
-    'post_type' =>  'insurances'
-  );
+  $args= array('posts_per_page' => -1,
+                      'orderby'=> 'title',
+                      'order' => 'ASC',
+                      'post_type' => 'insurances');
   $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
 	$return_string = '<ul>';

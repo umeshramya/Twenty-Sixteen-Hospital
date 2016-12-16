@@ -16,7 +16,7 @@ Template Name: All staff list
     $faculty_hierarchy_array = explode(',' , get_option('faculty_hierarchy' ));
     foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
 
-      $args_inner = array(
+      $args_inner = array( 'orderby' => 'display_name',
         'meta_query' => array( array(
         'key' => 'user_faculty_hierarchy',
         'value' => trim($faculty_hierarchy),

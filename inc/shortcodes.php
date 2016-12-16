@@ -9,7 +9,7 @@ add_shortcode( 'faculty_by_hierarchy_department', function($attr){
   // foreach ($faculty_hirerachy_array as $faculty_hirerachy) {
 
 
-    $args_inner = array(
+    $args_inner = array('orderby' => 'display_name',
       'meta_query' => array( 'relation' => 'AND',
         array(
       'key' => 'user_faculty_hierarchy',
@@ -49,7 +49,7 @@ add_shortcode( 'faculty_by_department', function(){
   $faculty_hierarchy_array = explode(',' , get_option('faculty_hierarchy' ));
   $return_string="";
   foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
-    $args_inner = array(
+    $args_inner = array('orderby' => 'display_name',
       'meta_query' => array( 'relation'=> 'AND',
       array(
       'key' => 'user_faculty_hierarchy',

@@ -50,7 +50,7 @@ function hospital_theme_custom_settings(){
   register_setting( 'hospital-theme-group', 'facilities' );
   register_setting( 'hospital-theme-group', 'private_insurance' );
   register_setting( 'hospital-theme-group', 'goverment_schemes' );
-
+  register_setting( 'hospital-theme-group', 'managament_hierarchy');
   register_setting( 'hospital-theme-group', 'faculty_hierarchy');
   register_setting( 'hospital-theme-group', 'hospital_email');
   register_setting( 'hospital-theme-group', 'office_phone');
@@ -71,6 +71,7 @@ function hospital_theme_custom_settings(){
   add_settings_field( 'hospital-facilities', 'Facilities', 'hospital_sidebar_facilities', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospital-private-insurance', 'Private insurance', 'hospital_sidebar_priavte_insurance', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospita_goverment-schemes', 'Goverment Schemes', 'hospital_goverment_schemes', 'umesh_hospital', 'hospital_sidebar_options' );
+  add_settings_field( 'hospital-managament-hierarchy', 'Managament Hierarchy', 'hospital_managament_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital-faculty-hierarchy', 'Faculty Hierarchy', 'hospital_faculty_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'sidebar-profile-picture', 'Hospital Profile picture', 'hospital_sidebar_profile_picture', 'umesh_hospital', 'hospital_sidebar_options');
 
@@ -160,11 +161,21 @@ function hospital_goverment_schemes(){
   echo '<p> Use approprite caps and small letters</p>';
 }
 
+
+function hospital_managament_hierarchy(){
+  $managament_hierarchy= esc_attr( get_option( 'managament_hierarchy' ) );
+  echo '<input type="text" name="managament_hierarchy" value="' . $managament_hierarchy . '" placeholder="Managament hierarchy" style="width:100%";/>';
+  echo '<p>Enter each postion by coma separtation </p>';
+  echo '<p>Example :- Chairperson, Vice Chairpersons, Managing Directoraties, Techanical Directorats</p>';
+  echo '<p> Use approprite caps and small letters</p>';
+
+}
+
 function hospital_faculty_hierarchy(){
   $faculty_hierarchy= esc_attr( get_option( 'faculty_hierarchy' ) );
   echo '<input type="text" name="faculty_hierarchy" value="' . $faculty_hierarchy . '" placeholder="Faculty hierarchy" style="width:100%";/>';
   echo '<p>Enter each postion by coma separtation </p>';
-  echo '<p>Example :- HOD, Senior Consultant, Consultant, Resident, Techanician, Nurse, Ward boy</p>';
+  echo '<p>Example :- HODs, Senior Consultants, Consultants, Residents, Techanicians, Nurses, Ward boys</p>';
   echo '<p> Use approprite caps and small letters</p>';
 
 }

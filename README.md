@@ -48,6 +48,12 @@ Enter hospital details.
   3.1. This field is for seting up positiion of users like HOD, Associate Professor, Assistant professor, Resident, Techaniacian, Nusre. One can declere them as per need of the hopistal.
   3.2. Note Order of mention will be used as seniority
 
+4. Managament hierarchy
+ 4.1 this field is display the managment of hospital may be doctors or not.
+ group them like Chairperson, vice Chairperson, medical Directorats by  coma saparted at hosptial Settings.
+ 4.2 at user menu choose if approprite
+ 4.4 shortcode [hospital_managament_by_hierarchy] to display on front end
+
 
 
 ##How to activate author or user profile page with contact form?
@@ -64,6 +70,9 @@ Enter hospital details.
 #SHORT CODES
 
 Please note these are important parts of this theme will go long way desgning website for hospital
+
+##[hospital_managament_by_hierarchy]
+This displays hospital Managament please use this on full width templates pages not with sidebar
 
 
 ##[faculty_by_hierarchy_department hierarchy = ""]

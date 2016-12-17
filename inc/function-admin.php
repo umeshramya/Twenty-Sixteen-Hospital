@@ -247,6 +247,22 @@ foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
    echo  '>'. trim($faculty_hierarchy) .'</option>';
 }
   echo '</select></br>';
+// ======================= managament_hierarchy=================
+
+$cur_user_managament_hierarchy = esc_attr( get_the_author_meta( "user_managament_hierarchy" , $user->ID  ) );
+$managament_hierarchy_array =explode (',' ,  get_option('managament_hierarchy'));
+
+echo '<label for="user_managament_hierarchy"/> Managament Hierarchy </label>';
+echo '<select name="user_managament_hierarchy" id="user_managament_hierarchy"/>';
+
+echo '<option value="Select managamnet hierarchy">Select managamnet hierarchy</option>';
+foreach ($managament_hierarchy_array as $managamnet_hierarchy) {
+    echo '<option value="'. trim($managamnet_hierarchy) .'"';
+    if ($cur_user_managament_hierarchy== trim($managamnet_hierarchy) ){echo 'selected="true"';}
+   echo  '>'. trim($managamnet_hierarchy) .'</option>';
+}
+  echo '</select></br>';
+
 
 //=====================Activate Contact Form per authot=========
 
@@ -273,6 +289,7 @@ function hospital_save_user_data($user){
   update_user_meta ($user, 'qualification', $_POST['qualification'] );
   update_user_meta ($user, 'registration_number', $_POST['registration_number'] );
   update_user_meta( $user, 'user_faculty_hierarchy', $_POST['user_faculty_hierarchy'] );
+  update_user_meta( $user, 'user_managament_hierarchy', $_POST['user_managament_hierarchy'] );
   update_user_meta( $user, 'activate_contact_form', $_POST['activate_contact_form'] );
 
 }

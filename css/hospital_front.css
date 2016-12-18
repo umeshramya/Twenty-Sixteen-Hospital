@@ -78,7 +78,7 @@ and (max-width : 1300px) {
   }
 
   .hospital-author-meta , .hospital-contact-form {
-    width: 450px;
+    width: 456px;
     margin: auto;
   }
 
@@ -99,7 +99,7 @@ and (min-width : 1300px) {
   }
 
   .hospital-author-meta , .hospital-contact-form {
-    width: 600px;
+    width: 456px;
     margin: auto;
   }
 
@@ -128,6 +128,7 @@ margin-bottom: 1em;
 .entry-title-hospital a,
 .author-links a {
 color: #1a1a1a;
+
 }
 
 .entry-title-hospital a:hover,
@@ -172,10 +173,7 @@ color: #007acc;
   min-width: 290px;
 
 }
-/*puts line above content bottum-line*/
-#bottum-line{
-  size:40px;
-}
+
 
 
 /*

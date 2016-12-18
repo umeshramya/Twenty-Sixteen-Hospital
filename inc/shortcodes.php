@@ -7,24 +7,24 @@ Short Codes
 
 /*
 =========================
-Shorte codes for managament_hierarchy
+Shorte codes for management_hierarchy
 =========================
 */
-add_shortcode( 'hospital_managament_by_hierarchy', function(){
-  $managament_hierarchy_array = explode(',' , get_option('managament_hierarchy' ));
+add_shortcode( 'hospital_management_by_hierarchy', function(){
+  $management_hierarchy_array = explode(',' , get_option('management_hierarchy' ));
   $return_string="";
-foreach ($managament_hierarchy_array as $managament_hierarchy) {
+foreach ($management_hierarchy_array as $management_hierarchy) {
   $args_inner = array( 'orderby' => 'display_name',
     'meta_query' => array( array(
-    'key' => 'user_managament_hierarchy',
-    'value' => trim($managament_hierarchy),
+    'key' => 'user_management_hierarchy',
+    'value' => trim($management_hierarchy),
     'compare' => '='))
     );
   // The Query
   $user_query = new WP_User_Query( $args_inner );
   // User Loop
   if ( !empty( $user_query->results ) ) {
-  $return_string = $return_string .'<h2>'.$managament_hierarchy.'</h2>';
+  $return_string = $return_string .'<h2>'.$management_hierarchy.'</h2>';
     foreach ( $user_query->results as $author ) {
       $return_string = $return_string . faculty_return_string($author);
     }//end of inner foreach loop

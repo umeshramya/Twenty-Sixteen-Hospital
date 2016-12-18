@@ -50,7 +50,7 @@ function hospital_theme_custom_settings(){
   register_setting( 'hospital-theme-group', 'facilities' );
   register_setting( 'hospital-theme-group', 'private_insurance' );
   register_setting( 'hospital-theme-group', 'goverment_schemes' );
-  register_setting( 'hospital-theme-group', 'managament_hierarchy');
+  register_setting( 'hospital-theme-group', 'management_hierarchy');
   register_setting( 'hospital-theme-group', 'faculty_hierarchy');
   register_setting( 'hospital-theme-group', 'hospital_email');
   register_setting( 'hospital-theme-group', 'office_phone');
@@ -71,7 +71,7 @@ function hospital_theme_custom_settings(){
   add_settings_field( 'hospital-facilities', 'Facilities', 'hospital_sidebar_facilities', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospital-private-insurance', 'Private insurance', 'hospital_sidebar_priavte_insurance', 'umesh_hospital', 'hospital_sidebar_options' );
   add_settings_field( 'hospita_goverment-schemes', 'Goverment Schemes', 'hospital_goverment_schemes', 'umesh_hospital', 'hospital_sidebar_options' );
-  add_settings_field( 'hospital-managament-hierarchy', 'Managament Hierarchy', 'hospital_managament_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
+  add_settings_field( 'hospital-management-hierarchy', 'Management Hierarchy', 'hospital_management_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'hospital-faculty-hierarchy', 'Faculty Hierarchy', 'hospital_faculty_hierarchy', 'umesh_hospital', 'hospital_sidebar_options');
   add_settings_field( 'sidebar-profile-picture', 'Hospital Profile picture', 'hospital_sidebar_profile_picture', 'umesh_hospital', 'hospital_sidebar_options');
 
@@ -162,9 +162,9 @@ function hospital_goverment_schemes(){
 }
 
 
-function hospital_managament_hierarchy(){
-  $managament_hierarchy= esc_attr( get_option( 'managament_hierarchy' ) );
-  echo '<input type="text" name="managament_hierarchy" value="' . $managament_hierarchy . '" placeholder="Managament hierarchy" style="width:100%";/>';
+function hospital_management_hierarchy(){
+  $management_hierarchy= esc_attr( get_option( 'management_hierarchy' ) );
+  echo '<input type="text" name="management_hierarchy" value="' . $management_hierarchy . '" placeholder="management hierarchy" style="width:100%";/>';
   echo '<p>Enter each postion by coma separtation </p>';
   echo '<p>Example :- Chairperson, Vice Chairpersons, Managing Directoraties, Techanical Directorats</p>';
   echo '<p> Use approprite caps and small letters</p>';
@@ -247,18 +247,18 @@ foreach ($faculty_hierarchy_array as $faculty_hierarchy) {
    echo  '>'. trim($faculty_hierarchy) .'</option>';
 }
   echo '</select></br>';
-// ======================= managament_hierarchy=================
+// ======================= management_hierarchy=================
 
-$cur_user_managament_hierarchy = esc_attr( get_the_author_meta( "user_managament_hierarchy" , $user->ID  ) );
-$managament_hierarchy_array =explode (',' ,  get_option('managament_hierarchy'));
+$cur_user_management_hierarchy = esc_attr( get_the_author_meta( "user_management_hierarchy" , $user->ID  ) );
+$management_hierarchy_array =explode (',' ,  get_option('management_hierarchy'));
 
-echo '<label for="user_managament_hierarchy"/> Managament Hierarchy </label>';
-echo '<select name="user_managament_hierarchy" id="user_managament_hierarchy"/>';
+echo '<label for="user_management_hierarchy"/> management Hierarchy </label>';
+echo '<select name="user_management_hierarchy" id="user_management_hierarchy"/>';
 
 echo '<option value="Select managamnet hierarchy">Select managamnet hierarchy</option>';
-foreach ($managament_hierarchy_array as $managamnet_hierarchy) {
+foreach ($management_hierarchy_array as $managamnet_hierarchy) {
     echo '<option value="'. trim($managamnet_hierarchy) .'"';
-    if ($cur_user_managament_hierarchy== trim($managamnet_hierarchy) ){echo 'selected="true"';}
+    if ($cur_user_management_hierarchy== trim($managamnet_hierarchy) ){echo 'selected="true"';}
    echo  '>'. trim($managamnet_hierarchy) .'</option>';
 }
   echo '</select></br>';
@@ -289,7 +289,7 @@ function hospital_save_user_data($user){
   update_user_meta ($user, 'qualification', $_POST['qualification'] );
   update_user_meta ($user, 'registration_number', $_POST['registration_number'] );
   update_user_meta( $user, 'user_faculty_hierarchy', $_POST['user_faculty_hierarchy'] );
-  update_user_meta( $user, 'user_managament_hierarchy', $_POST['user_managament_hierarchy'] );
+  update_user_meta( $user, 'user_management_hierarchy', $_POST['user_management_hierarchy'] );
   update_user_meta( $user, 'activate_contact_form', $_POST['activate_contact_form'] );
 
 }

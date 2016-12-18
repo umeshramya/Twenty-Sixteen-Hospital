@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page without side-bar
+Template Name:  Page without side-bar full width
 */
 
 get_header(); ?>

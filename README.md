@@ -52,7 +52,7 @@ Enter hospital details.
  4.1 this field is display the managment of hospital may be doctors or not.
  group them like Chairperson, vice Chairperson, medical Directorats by  coma saparted at hosptial Settings.
  4.2 at user menu choose if approprite
- 4.4 shortcode [hospital_managament_by_hierarchy] to display on front end
+ 4.4 shortcode [hospital_managment_by_hierarchy] to display on front end
 
 
 
@@ -71,8 +71,8 @@ Enter hospital details.
 
 Please note these are important parts of this theme will go long way desgning website for hospital
 
-##[hospital_managament_by_hierarchy]
-This displays hospital Managament please use this on full width templates pages not with sidebar
+##[hospital_management_by_hierarchy]
+This displays hospital Management please use this on full width templates pages not with sidebar
 
 
 ##[faculty_by_hierarchy_department hierarchy = ""]

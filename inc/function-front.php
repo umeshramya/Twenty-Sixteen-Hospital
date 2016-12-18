@@ -121,17 +121,27 @@ this function returns the author details for dsiplay as acrhive
 ===============================================================
 */
 function faculty_return_string($author){
+  $qualification='';
+  $department ='';
+
+  if(isset($author->qualification )){
+    $qualification =$author->qualification .'</br>';
+  }
+
+  if(isset($author->user_department  )){
+    $department =$author->user_department .'</br>';
+  }
+
 $return_string = '<div class="archive-post-hospital author-links">';
-// $user_post_count =  count_user_posts( $author->ID,  'post',  true );
-// $_SESSION['author_ID']= $author->ID;
+
 
 $link = get_author_posts_url($author->ID);
 $return_string = $return_string .
           '<a href="'. add_query_arg('author_ID' , $author->ID , $link ).'">'.// add_query_arg function adds argument end of permlink to be used as $_GET on author.php
-            get_avatar( $author->ID, 160 ) .
-        '<h2>'. $author->display_name . '</h2>' .
-                $author->qualification . '</br>' .
-                $author->user_department . '</br>' .
+          get_avatar( $author->ID, 160 ).
+          '<h2 style="margin:0px;padding:0px;">'. $author->display_name . '</h2>' .
+          $qualification .
+          $department .
                 '</a>';
 
     $return_string = $return_string .  '</div>';
@@ -163,11 +173,6 @@ if( !$menu_exists){
     $menu_id = wp_create_nav_menu($menu_name);
 
 	// Set up default menu items
-    // wp_update_nav_menu_item($menu_id, 0, array(
-    //     'menu-item-title' =>  __('Home'),
-    //     'menu-item-classes' => 'home',
-    //     'menu-item-url' => home_url( '/' ),
-    //     'menu-item-status' => 'publish'));
 
     wp_update_nav_menu_item($menu_id, 0, array(
         'menu-item-title' =>  __('Facilities'),

@@ -16,7 +16,7 @@
 	<div class="entry-content-hospital">
 		<?php
 
-echo '<div class="hospital-carrier">';
+echo '<div class="hospital-carreer">';
 		$job_description = get_post_meta( $post->ID );
 		if(!empty($job_description['job_title'])){
 			$job_title =esc_attr($job_description['job_title'][0]);
@@ -42,7 +42,7 @@ echo '<div class="hospital-carrier">';
 			echo '<br>Last date for applying : ' . $job_description['closing_date'][0];
 		}
 echo '</div>
-			<div class="hospital-carrier">';
+			<div class="hospital-carreer">';
 		if(!empty($job_description['principle_duties'])){
 			print_r( '<br>Job Discription : <br>' . html_entity_decode($job_description['principle_duties'][0]));
 			// the_content( $job_description['principle_duties'][0] );

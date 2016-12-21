@@ -156,7 +156,7 @@ $return_string = $return_string .
 Creatig menu items for archives
 1. Departements
 2. facilities
-3. Carriers
+3. carreers
 4. Private insurances
 5. Goverment Schemes
 6. Packages
@@ -187,13 +187,13 @@ if( !$menu_exists){
         'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Carriers'),
+            'menu-item-title' =>  __('Carreers'),
              'menu-item-object' => 'archive',
-            'menu-item-url' => home_url( '/?post_type=carriers' ),
+            'menu-item-url' => home_url( '/?post_type=carreers' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('insurances'),
+            'menu-item-title' =>  __('Insurances'),
              'menu-item-object' => 'archive',
             'menu-item-url' => home_url( '/?post_type=insurances' ),
             'menu-item-status' => 'publish'));

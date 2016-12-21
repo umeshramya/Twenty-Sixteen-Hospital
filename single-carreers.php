@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * The template for displaying all single posts and attachments
  *
  * @package WordPress
@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-<!-- <div id="primary" class="content-area-without-sidebar-hospital"> -->
 <div id="primary" class="content-area">
 		<main role="main">
 			<div class="single-post-wraper-hospital">
@@ -18,7 +17,7 @@ get_header(); ?>
 		while ( have_posts() ) : the_post();
 
 			// Include the single post content template.
-			get_template_part( 'template-parts/content', 'carriers-single' );
+			get_template_part( 'template-parts/content', 'carreers-single' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) {
@@ -45,13 +44,12 @@ get_header(); ?>
 			// End of the loop.
 		endwhile;
 		?>
-	</div> <!--.archive-posts-wraper-hospital-->
-	<hr id='bottum-line'>
-	<?php get_sidebar( 'content-bottom' ); ?>
+</div> <!--.archive-posts-wraper-->
+<hr id='bottum-line'>
+<?php get_sidebar( 'content-bottom' ); ?>
 	</main><!-- .site-main -->
 
 
 </div><!-- .content-area -hospital-->
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

@@ -210,7 +210,7 @@ add_action( 'init', 'hospital_private_insurance_custom_post_type');
 function hospital_private_insurance_custom_post_type (){
         $labels = array(
           "singular_name" => __( 'insurance' ),
-          "menu_name" => __( 'insurances' ),
+          "menu_name" => __( 'Insurances' ),
           "archives" => __( 'true' ),
           );
 
@@ -265,22 +265,22 @@ add_action('init', 'hospital_insert_private_insurance_posts');
 
  /*
  ============================
- Carriers custom post type
+ carreerss custom post type
  ============================
  */
 
- add_action( 'init', 'hospital_carrier_custom_post_type');
- function hospital_carrier_custom_post_type(){
+ add_action( 'init', 'hospital_carreer_custom_post_type');
+ function hospital_carreer_custom_post_type(){
    $labels = array(
-  		"singular_name" => __( 'Carrier' ),
-  		"menu_name" => __( 'Carrier' ),
+  		"singular_name" => __( 'carreer' ),
+  		"menu_name" => __( 'Carreers' ),
   		"archives" => __( 'true' ),
   		);
 
   	$args = array(
-  		"label" => __( 'Carriers' ),
+  		"label" => __( 'carreer' ),
   		"labels" => $labels,
-  		"description" => "These posts for adding Carriers inside the hospital",
+  		"description" => "These posts for adding carreers inside the hospital",
   		"public" => true,
   		"publicly_queryable" => true,
   		"show_ui" => true,
@@ -292,12 +292,12 @@ add_action('init', 'hospital_insert_private_insurance_posts');
   		"capability_type" => "post",
      	"map_meta_cap" => true,
   		"hierarchical" => false,
-  		"rewrite" => array( "slug" => "carriers", "with_front" => true ),
+  		"rewrite" => array( "slug" => "carreers", "with_front" => true ),
   		"query_var" => true,
      "menu_icon" =>'dashicons-palmtree',
   		"supports" => array( "title", 'thumbnail' ),
     'taxonomies' => array('post_tag'));
-    	register_post_type( "carriers", $args );
+    	register_post_type( "carreers", $args );
 
 
  }
@@ -387,7 +387,7 @@ add_meta_box( 'job_description', 'Job Description',
 
 
             },
-      'carriers','normal', 'high');
+      'carreers','normal', 'high');
 
 
     } );
@@ -475,7 +475,7 @@ Packages custom post type
     $args = array(
       "label" => __( 'Packages' ),
       "labels" => $labels,
-      "description" => "These posts for adding Carriers inside the hospital",
+      "description" => "These posts for adding packages inside the hospital",
       "public" => true,
       "publicly_queryable" => true,
       "show_ui" => true,
@@ -515,7 +515,7 @@ Packages custom post type
     $args = array(
       "label" => __( 'Reviews' ),
       "labels" => $labels,
-      "description" => "These posts for adding Carriers inside the hospital",
+      "description" => "These posts for adding carreers inside the hospital",
       "public" => true,
       "publicly_queryable" => true,
       "show_ui" => true,

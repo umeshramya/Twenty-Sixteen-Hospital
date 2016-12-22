@@ -87,7 +87,9 @@ Setting functions
 function activate_hopsital_contact_form(){
   $option_checked = get_option( 'activate_contact' );
   $checked = (@$option_checked==1 ? 'checked':'');
- echo '<label> <input type="checkbox"  name="activate_contact"  value="1" '. $checked .' /></label> </br>';
+ echo '<label> <input type="checkbox"  name="activate_contact"  value="1" '. $checked .' /></label> </br>
+ Use SMTP for sending email. plugin like Gmail SMTP is helpfull. <br> Eihter google suite previously named as google apps (paid service)
+ or free Gmail account is OK<br>';
 }
 
 function hospital_sidebar_name(){

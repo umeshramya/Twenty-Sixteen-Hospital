@@ -59,13 +59,15 @@ Enter hospital details.
 ##How to activate author or user profile page with contact form?
  1. Please note that only those users or authors or individual page will be active who have at least one blog post active.So kinldy write one blog post.
  2. To activate contact form:- mark check to checkbox activate contact form. Your form will be active only in case admin activate Builtin conact form from hospita menu(this applies every one).
+ 3.  Use SMTP for sending email. plugin like Gmail SMTP is helpfull. Eihter google suite previously named as google apps (paid service)
+ or free Gmail account is OK
 
 ## other custom types are degined with specific purpose
   1. Goverment schemes (schemes) for from public sector like BPL card holder, Yeshewini etc
-  4. Private Insurences (Insurances) for TPA like Vidal, mediasst etc
-  4. Packages for hospital Packages like master health check up, visa health checkup CABG package etc
+  2. Private Insurences (Insurances) for TPA like Vidal, mediasst etc
+  3. Packages for hospital Packages like master health check up, visa health checkup CABG package etc
   4. Reviews patient reviews subimmted from patients(these can enbled from front by use if shortcodes see below)
-  4. carriers for announceing job vacancy announceing
+  5. carriers for announceing job vacancy announceing
 
 #SHORT CODES
 

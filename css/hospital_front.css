@@ -177,6 +177,31 @@ color: #007acc;
 
 
 /*
+css for google custom search
+*/
+
+.gsc-search-button {
+  display: none;
+}
+
+
+.gsc-input{
+  border: 0px;
+  margin: 0px;
+
+}
+
+
+#___gcse_0{
+  width:60%;
+  float: right;
+  min-width: 250px;
+
+}
+
+
+
+/*
 ============================================================
 Below styles are meant overide twentysixteen stylles
 These may be required change when parent theme is changed.

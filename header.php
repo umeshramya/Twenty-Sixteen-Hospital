@@ -94,6 +94,16 @@
 					</a>
 				</div><!-- .header-image -->
 			<?php endif; // End header image check. ?>
+
+			<!-- code fo google custom seacrh -->
+
+
+
+
+
+
+
+
 		</header><!-- .site-header -->
 
 		<div id="content" class="site-content">

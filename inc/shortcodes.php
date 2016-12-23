@@ -17,7 +17,7 @@ foreach ($management_hierarchy_array as $management_hierarchy) {
   $args_inner = array( 'orderby' => 'display_name',
     'meta_query' => array( array(
     'key' => 'user_management_hierarchy',
-    'value' => trim($management_hierarchy),
+    'value' =>esc_attr( trim($management_hierarchy)),
     'compare' => '='))
     );
   // The Query
@@ -51,12 +51,12 @@ add_shortcode( 'faculty_by_hierarchy_department', function($attr){
       'meta_query' => array( 'relation' => 'AND',
         array(
       'key' => 'user_faculty_hierarchy',
-      'value' => $attr['hierarchy'],
+      'value' =>esc_attr( $attr['hierarchy']),
       'compare' => '='),
 
       array(
         'key' => 'user_department',
-        'value' => get_the_title(),
+        'value' => esc_attr( get_the_title()),
         'compare' => '=')
        ));
 
@@ -91,12 +91,12 @@ add_shortcode( 'faculty_by_department', function(){
       'meta_query' => array( 'relation'=> 'AND',
       array(
       'key' => 'user_faculty_hierarchy',
-      'value' => trim($faculty_hierarchy),
+      'value' => esc_attr(trim($faculty_hierarchy)),
       'compare' => '='),
 
       array(
         'key' => 'user_department',
-        'value' => get_the_title(),
+        'value' => esc_attr( get_the_title()),
         'compare' => '=')
        ));
 
@@ -126,7 +126,7 @@ return $return_string;
 
 //shortcode [faculty_get_auhtor_by email='']
 add_shortcode( 'faculty_get_auhtor_by', function($attr){
-$user_email=$attr['email'];
+$user_email=  esc_attr( $attr['email']);
 $user_query = new WP_User_Query(array( 'search' => $user_email ));
 $author = $user_query->results;
 
@@ -152,7 +152,7 @@ shortr code for review submission
 =======================================
 */
  add_shortcode( 'review_submit', function($attr){
-  $to_email = $attr['to_email'];
+  $to_email = esc_attr($attr['to_email']);
    ?>
 <form class="" action="" method="post">
 <h5>The review submitted on this form will be moderated by admin if found appropriate may be published for public view<h5>
@@ -181,7 +181,7 @@ shortr code for review submission
 
 // short code of [contact form contact_form to_email=""]
 add_shortcode( 'contact_form', function($attr){
-$to_email = $attr['to_email'];
+$to_email = esc_attr($attr['to_email']);
  ?>
 
  <form  id="author_contact_form">
@@ -205,20 +205,20 @@ $to_email = $attr['to_email'];
 
 // shortcode [hospital_name]
 add_shortcode( 'hospital_name', function(){
-  $retrun_string= get_option('hospital_name');
+  $retrun_string= esc_attr(trim(get_option('hospital_name')));
   return $retrun_string;
 } );
 
 // shortcode [emergency_phone]
 add_shortcode( 'emergency_phone', function(){
-  $retrun_string= get_option('emergency_phone');
+  $retrun_string= esc_attr(trim(get_option('emergency_phone')));
   $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [ambulance_phone]
 add_shortcode( 'ambulance_phone', function(){
-  $retrun_string= get_option('ambulance_phone');
+  $retrun_string= esc_attr(trim(get_option('ambulance_phone')));
   $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
@@ -226,21 +226,21 @@ add_shortcode( 'ambulance_phone', function(){
 
 //shortcode [help_desk_phone]
 add_shortcode( 'help_desk_phone', function(){
-  $retrun_string= get_option('help_desk_phone');
+  $retrun_string= esc_attr(trim(get_option('help_desk_phone')));
   $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [office_phone]
 add_shortcode( 'office_phone', function(){
-  $retrun_string= get_option('office_phone');
+  $retrun_string= esc_attr(trim(get_option('office_phone')));
   $retrun_string ='<a href="tel:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
 
 //shortcode [hospital_email]
 add_shortcode( 'hospital_email', function(){
-  $retrun_string= get_option('hospital_email');
+  $retrun_string=esc_attr(trim(get_option('hospital_email')));
   $retrun_string ='<a href="mailto:'.$retrun_string.'">'. $retrun_string .'</a>';
   return $retrun_string;
 } );
@@ -250,8 +250,8 @@ add_shortcode( 'hospital_email', function(){
 // shortcode for [hospital_address]
 
 add_shortcode( 'hospital_address',  function(){
-  $hospital_address= get_option( 'hospital_address');
-  $hospital_google_map_link= get_option( 'hospital_google_map_link');
+  $hospital_address=esc_attr(trim(get_option( 'hospital_address')));
+  $hospital_google_map_link= esc_attr(trim(get_option( 'hospital_google_map_link')));
   $retrun_string ='<a href="'.$hospital_google_map_link.'"><pre>'. $hospital_address . '</pre></a>';
   return $retrun_string;
 });
@@ -262,13 +262,13 @@ add_shortcode( 'hospital_address',  function(){
 
 //shortcode [hospital_phones_email]
 add_shortcode( 'address_phones_email', function(){
-  $hospital_address= get_option( 'hospital_address');
-  $hospital_google_map_link= get_option( 'hospital_google_map_link');
-  $emergency_phone =trim(get_option('emergency_phone'));
-  $ambulance_phone = trim( get_option('ambulance_phone'));
-  $help_desk_phone =trim(get_option('help_desk_phone'));
-  $office_phone = trim(get_option('office_phone'));
-  $hospital_email =trim(get_option('hospital_email'));
+  $hospital_address=esc_attr(trim(get_option( 'hospital_address')));
+  $hospital_google_map_link= esc_attr(trim(get_option( 'hospital_google_map_link')));
+  $emergency_phone =esc_attr(trim(get_option('emergency_phone')));
+  $ambulance_phone = esc_attr(trim( get_option('ambulance_phone')));
+  $help_desk_phone = esc_attr(trim(get_option('help_desk_phone')));
+  $office_phone = esc_attr(trim(get_option('office_phone')));
+  $hospital_email = esc_attr(trim(get_option('hospital_email')));
 
   if($hospital_address!=''){
   $retrun_string = '<a href="'.$hospital_google_map_link.'">'.'Address: '. $hospital_address . '<br></a>';

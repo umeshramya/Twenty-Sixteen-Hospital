@@ -31,8 +31,7 @@ if (isset($_POST['user_query'])){
 		<div style="clear: both;"></div><!-- dummy div for clear floats-->
     <?php
     if (isset($_POST['user_query'])){
-    $search_term= $_POST['user_query'];
-
+    $search_term=trim($_POST['user_query']);
     $args = array (
     'order' => 'ASC',
     'orderby' => 'display_name',
@@ -53,7 +52,28 @@ if (isset($_POST['user_query'])){
             'key' => 'description',
             'value' => $search_term ,
             'compare' => 'LIKE'
-        )
+        ),
+
+        // array(
+        //     'key' => 'user_department',
+        //     'value' => $search_term ,
+        //     'compare' => 'LIKE'
+        // ),
+        // array(
+        //     'key' => 'qualification',
+        //     'value' => $search_term ,
+        //     'compare' => 'LIKE'
+        // ),
+        // array(
+        //     'key' => 'user_faculty_hierarchy',
+        //     'value' => $search_term ,
+        //     'compare' => 'LIKE'
+        // ),
+        // array(
+        //     'key' => 'user_management_hierarchy',
+        //     'value' => $search_term ,
+        //     'compare' => 'LIKE'
+        // )
       )
     );
 
@@ -81,7 +101,7 @@ $user_query = new WP_User_Query( $args);
       $args_inner = array( 'orderby' => 'display_name',
         'meta_query' => array( array(
         'key' => 'user_faculty_hierarchy',
-        'value' => trim($faculty_hierarchy),
+        'value' =>esc_attr( trim($faculty_hierarchy)),
         'compare' => '='))
         );
         // The Query

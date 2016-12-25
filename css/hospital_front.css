@@ -177,6 +177,16 @@ color: #007acc;
 
 
 /*
+this is for ajax loading
+*/
+
+.spinner {
+display: none;
+}
+
+
+
+/*
 css for google custom search
 */
 

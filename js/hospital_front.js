@@ -13,6 +13,7 @@ jQuery(document).ready(function($){
     var subject_email = $("#subject_email").val();
     var message_email= $("#message_email").val();
 
+
     if(to_email==''){
         alert("To email cannot be empty");
         return;
@@ -52,6 +53,9 @@ jQuery(document).ready(function($){
       alert('message can be empty');
       return;
     }
+
+
+      $('.spinner').show();// for image load
       $.ajax({
         datatype : "json",
         type : "post",
@@ -65,6 +69,7 @@ jQuery(document).ready(function($){
               },
         success:function(result) {
                 // This outputs the result of the ajax request
+                $('.spinner').hide();
 
 
                $("#name_email").attr("disabled", true);
@@ -77,6 +82,8 @@ jQuery(document).ready(function($){
                 alert (result);
             },
             error: function(errorThrown){
+                $('.spinner').hide();
+
                 $("#email_result").html(errorThrown);
                 alert(errorThrown);
 
@@ -138,7 +145,7 @@ jQuery(document).ready(function($){
         return;
       }
 
-
+$('.spinner').show();// for image load
       $.ajax({
         datatype : "json",
         type : "post",
@@ -157,10 +164,12 @@ jQuery(document).ready(function($){
                $("#hospital_reviewer_email").attr("disabled", true);
                $("#hospital_review_content").attr("disabled", true);
 
-                // $("#email_result").html(result);
+                $('.spinner').hide();
+                $("#email_result").html(result);
                 alert (result);
             },
             error: function(errorThrown){
+                $('.spinner').hide();
                 $("#email_result").html(errorThrown);
                 alert(errorThrown);
             }

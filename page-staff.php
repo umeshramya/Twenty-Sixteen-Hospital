@@ -54,27 +54,7 @@ if (isset($_POST['user_query'])){
             'compare' => 'LIKE'
         ),
 
-        // array(
-        //     'key' => 'user_department',
-        //     'value' => $search_term ,
-        //     'compare' => 'LIKE'
-        // ),
-        // array(
-        //     'key' => 'qualification',
-        //     'value' => $search_term ,
-        //     'compare' => 'LIKE'
-        // ),
-        // array(
-        //     'key' => 'user_faculty_hierarchy',
-        //     'value' => $search_term ,
-        //     'compare' => 'LIKE'
-        // ),
-        // array(
-        //     'key' => 'user_management_hierarchy',
-        //     'value' => $search_term ,
-        //     'compare' => 'LIKE'
-        // )
-      )
+    )
     );
 
 

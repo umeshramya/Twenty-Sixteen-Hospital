@@ -176,6 +176,13 @@ shortr code for review submission
 <input type="button" name="btn_submit_review" id="btn_submit_review" value="submit">
 </form>
 
+<div id="email_result">
+<div id="contact_spinner" class="spinner">
+  <img src="<?php echo get_stylesheet_directory_uri() . '/images/wpspin-2x.gif' ?>" >
+  Please Wait submitting review...
+</div><!--display loading image -->
+</div>
+
    <?php
  } );
 
@@ -198,7 +205,12 @@ $to_email = esc_attr($attr['to_email']);
  <input type="button"  name="btn_contact" id="btn_contact" value="Send email">
 
 </form>
-<div id="email_result"></div>
+<div id="email_result">
+<div id="contact_spinner" class="spinner">
+  <img src="<?php echo get_stylesheet_directory_uri() . '/images/wpspin-2x.gif' ?>">
+  Please wait submitting eamil...
+</div><!--display loading image -->
+</div>
 <?php
 } );
 

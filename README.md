@@ -68,8 +68,6 @@ Enter hospital details.
   4. Reviews patient reviews subimmted from patients(these can enbled from front by use if shortcodes see below)
   5. carriers for announceing job vacancy announceing
 
-##Google custom search
-Paste your google custom search code in header.php below this comment 	<!-- code fo google custom seacrh -->
 
 #SHORT CODES
 

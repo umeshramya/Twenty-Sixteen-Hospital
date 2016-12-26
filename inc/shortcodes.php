@@ -42,6 +42,9 @@ return $return_string;
 
 } );
 
+
+
+
 add_shortcode( 'faculty_by_hierarchy_department', function($attr){
   // $faculty_hirerachy_array = explode(',' , get_option('faculty_hirerachy' ));
   // foreach ($faculty_hirerachy_array as $faculty_hirerachy) {

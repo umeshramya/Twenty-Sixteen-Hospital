@@ -27,16 +27,17 @@ if(isset( $_GET['author_ID'])){
 			<div class="archive-posts-wraper-hospital">
 
 		<?php if(have_posts()):	?>
-			<div style="clear: both;"></div><!-- dummy div for clear floats-->
+		<div style="clear: both;"></div><!-- dummy div for clear floats-->
 
-				<?php 	while ( have_posts()) : the_post();?>
+		<?php 	while ( have_posts()) : the_post();?>
 
-						<?php get_template_part( '/template-parts/author', 'archive' )?>
-						
-				<?php endwhile  ?>
+				<?php get_template_part( '/template-parts/author', 'archive' ); ?>
 
-			</div><!--.archive-posts-wraper-hospital-->
-		<?php endif; ?>
+		<?php endwhile  ?>
+
+		
+	</div><!--.archive-posts-wraper-hospital-->
+	<?php endif; ?>
 
 		<div style="clear: both;"></div>
 		<div class="hospital-old-new-posts">
